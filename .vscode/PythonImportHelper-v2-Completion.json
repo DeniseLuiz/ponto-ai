@@ -1068,7 +1068,7 @@
         "kind": 2,
         "importPath": "alembic.versions.0002_storage_redis",
         "description": "alembic.versions.0002_storage_redis",
-        "peekOfCode": "def downgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_path\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_path\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_key\")\n    op.drop_column(\"jobs\", \"result_key\")\n    op.alter_column(\"jobs\", \"pdf_path\", nullable=False)",
+        "peekOfCode": "def downgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_path\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_path\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_key\")\n    op.drop_column(\"jobs\", \"result_key\")\n    op.alter_column(\"jobs\", \"pdf_path\", nullable=False)\n    # ;;;",
         "detail": "alembic.versions.0002_storage_redis",
         "documentation": {}
     },

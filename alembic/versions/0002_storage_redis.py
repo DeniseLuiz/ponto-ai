@@ -27,3 +27,4 @@ def downgrade():
     op.drop_column("jobs", "pdf_key")
     op.drop_column("jobs", "result_key")
     op.alter_column("jobs", "pdf_path", nullable=False)
+    # ;;;
