@@ -23,9 +23,9 @@ def run_extraction_job(self, job_id: int):
 
     try:
         client = genai.GenerativeModel(settings.GEMINI_MODEL)
-        result_path = process_job(job_id, job.pdf_path, job.role_mode, client)
+        result_key = process_job(job_id, job.pdf_key, job.role_mode, client)
 
-        job.result_path = result_path
+        job.result_key = result_key
         job.status = "done"
         job.finished_at = datetime.utcnow()
     except Exception as e:

@@ -1,8 +1,7 @@
-import shutil
 import uuid
-from pathlib import Path
+import io
 from fastapi import APIRouter, UploadFile, File, Depends, HTTPException, Form
-from fastapi.responses import FileResponse
+from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
@@ -11,7 +10,7 @@ from app import models, schemas
 from app.auth.security import get_current_user
 from app.roles.registry import list_roles
 from app.jobs.tasks import run_extraction_job
-from app.config import settings
+from app.storage.redis_storage import save_file, get_file
 
 router = APIRouter(prefix="/jobs", tags=["Processamento (Jobs)"])
 
@@ -31,7 +30,7 @@ async def upload_pdf(
     current_user: models.User = Depends(get_current_user),
 ):
     """
-    Recebe o PDF, valida, salva em disco/storage e dispara o processamento
+    Recebe o PDF, salva no Redis (com TTL) e dispara o processamento
     assíncrono via Celery. Retorna imediatamente o job criado (status=pending).
     """
     if file.content_type != "application/pdf":
@@ -40,21 +39,16 @@ async def upload_pdf(
     if role_id not in (1, 2, 3):
         raise HTTPException(status_code=400, detail="role_id inválido. Use 1, 2 ou 3.")
 
-    upload_dir = Path(settings.STORAGE_DIR) / "uploads"
-    upload_dir.mkdir(parents=True, exist_ok=True)
-
-    unique_name = f"{uuid.uuid4().hex}_{file.filename}"
-    dest_path = upload_dir / unique_name
-
-    with open(dest_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    content = await file.read()
+    pdf_key = f"pdf:{uuid.uuid4().hex}"
+    save_file(pdf_key, content)
 
     job = models.Job(
         employee_id=employee_id,
         user_id=current_user.id,
         role_mode=role_id,
         original_filename=file.filename,
-        pdf_path=str(dest_path),
+        pdf_key=pdf_key,
         status="pending",
     )
     db.add(job)
@@ -100,11 +94,18 @@ def download_result(
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")
-    if job.status != "done" or not job.result_path:
+    if job.status != "done" or not job.result_key:
         raise HTTPException(status_code=409, detail="Job ainda não foi concluído.")
 
-    return FileResponse(
-        path=job.result_path,
-        filename=f"resultado_job_{job.id}.xlsx",
+    file_bytes = get_file(job.result_key)
+    if file_bytes is None:
+        raise HTTPException(
+            status_code=410,
+            detail="Arquivo expirado no storage temporário. Reprocesse o job enviando o PDF novamente.",
+        )
+
+    return StreamingResponse(
+        io.BytesIO(file_bytes),
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": f"attachment; filename=resultado_job_{job.id}.xlsx"},
     )

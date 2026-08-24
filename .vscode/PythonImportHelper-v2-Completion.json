@@ -1,0 +1,1697 @@
+[
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "engine_from_config",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "pool",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "isExtraImport": true,
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "schemas",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "schemas",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "schemas",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "schemas",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "UploadFile",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "File",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Form",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "isExtraImport": true,
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "JWTError",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "openpyxl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "fitz",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "fitz",
+        "description": "fitz",
+        "detail": "fitz",
+        "documentation": {}
+    },
+    {
+        "label": "get_role_handler",
+        "importPath": "app.roles.registry",
+        "description": "app.roles.registry",
+        "isExtraImport": true,
+        "detail": "app.roles.registry",
+        "documentation": {}
+    },
+    {
+        "label": "list_roles",
+        "importPath": "app.roles.registry",
+        "description": "app.roles.registry",
+        "isExtraImport": true,
+        "detail": "app.roles.registry",
+        "documentation": {}
+    },
+    {
+        "label": "aggregate_and_export",
+        "importPath": "app.export.excel_builder",
+        "description": "app.export.excel_builder",
+        "isExtraImport": true,
+        "detail": "app.export.excel_builder",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "StreamingResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "run_extraction_job",
+        "importPath": "app.jobs.tasks",
+        "description": "app.jobs.tasks",
+        "isExtraImport": true,
+        "detail": "app.jobs.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "save_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "get_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "google.generativeai",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "google.generativeai",
+        "description": "google.generativeai",
+        "detail": "google.generativeai",
+        "documentation": {}
+    },
+    {
+        "label": "celery_app",
+        "importPath": "app.celery_app",
+        "description": "app.celery_app",
+        "isExtraImport": true,
+        "detail": "app.celery_app",
+        "documentation": {}
+    },
+    {
+        "label": "process_job",
+        "importPath": "app.jobs.processor",
+        "description": "app.jobs.processor",
+        "isExtraImport": true,
+        "detail": "app.jobs.processor",
+        "documentation": {}
+    },
+    {
+        "label": "role_1_financeiro",
+        "importPath": "app.roles",
+        "description": "app.roles",
+        "isExtraImport": true,
+        "detail": "app.roles",
+        "documentation": {}
+    },
+    {
+        "label": "role_2_ponto",
+        "importPath": "app.roles",
+        "description": "app.roles",
+        "isExtraImport": true,
+        "detail": "app.roles",
+        "documentation": {}
+    },
+    {
+        "label": "role_3_generico",
+        "importPath": "app.roles",
+        "description": "app.roles",
+        "isExtraImport": true,
+        "detail": "app.roles",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "redis",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "redis",
+        "description": "redis",
+        "detail": "redis",
+        "documentation": {}
+    },
+    {
+        "label": "Celery",
+        "importPath": "celery",
+        "description": "celery",
+        "isExtraImport": true,
+        "detail": "celery",
+        "documentation": {}
+    },
+    {
+        "label": "BaseSettings",
+        "importPath": "pydantic_settings",
+        "description": "pydantic_settings",
+        "isExtraImport": true,
+        "detail": "pydantic_settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "isExtraImport": true,
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.companies.routes",
+        "description": "app.companies.routes",
+        "isExtraImport": true,
+        "detail": "app.companies.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.employees.routes",
+        "description": "app.employees.routes",
+        "isExtraImport": true,
+        "detail": "app.employees.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.jobs.routes",
+        "description": "app.jobs.routes",
+        "isExtraImport": true,
+        "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0002_storage_redis",
+        "description": "alembic.versions.0002_storage_redis",
+        "peekOfCode": "def upgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_key\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_key\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_path\")\n    op.drop_column(\"jobs\", \"result_path\")\n    op.alter_column(\"jobs\", \"pdf_key\", nullable=False)\ndef downgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_path\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_path\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_key\")",
+        "detail": "alembic.versions.0002_storage_redis",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0002_storage_redis",
+        "description": "alembic.versions.0002_storage_redis",
+        "peekOfCode": "def downgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_path\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_path\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_key\")\n    op.drop_column(\"jobs\", \"result_key\")\n    op.alter_column(\"jobs\", \"pdf_path\", nullable=False)",
+        "detail": "alembic.versions.0002_storage_redis",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "alembic.versions.0002_storage_redis",
+        "description": "alembic.versions.0002_storage_redis",
+        "peekOfCode": "revision = \"0002\"\ndown_revision = \"0001\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_key\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_key\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_path\")\n    op.drop_column(\"jobs\", \"result_path\")\n    op.alter_column(\"jobs\", \"pdf_key\", nullable=False)",
+        "detail": "alembic.versions.0002_storage_redis",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "alembic.versions.0002_storage_redis",
+        "description": "alembic.versions.0002_storage_redis",
+        "peekOfCode": "down_revision = \"0001\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_key\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_key\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_path\")\n    op.drop_column(\"jobs\", \"result_path\")\n    op.alter_column(\"jobs\", \"pdf_key\", nullable=False)\ndef downgrade():",
+        "detail": "alembic.versions.0002_storage_redis",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "alembic.versions.0002_storage_redis",
+        "description": "alembic.versions.0002_storage_redis",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_key\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_key\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_path\")\n    op.drop_column(\"jobs\", \"result_path\")\n    op.alter_column(\"jobs\", \"pdf_key\", nullable=False)\ndef downgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_path\", sa.String, nullable=True))",
+        "detail": "alembic.versions.0002_storage_redis",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "alembic.versions.0002_storage_redis",
+        "description": "alembic.versions.0002_storage_redis",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_key\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_key\", sa.String, nullable=True))\n    op.drop_column(\"jobs\", \"pdf_path\")\n    op.drop_column(\"jobs\", \"result_path\")\n    op.alter_column(\"jobs\", \"pdf_key\", nullable=False)\ndef downgrade():\n    op.add_column(\"jobs\", sa.Column(\"pdf_path\", sa.String, nullable=True))\n    op.add_column(\"jobs\", sa.Column(\"result_path\", sa.String, nullable=True))",
+        "detail": "alembic.versions.0002_storage_redis",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_offline",
+        "kind": 2,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "def run_migrations_offline():\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)\n    with context.begin_transaction():\n        context.run_migrations()\ndef run_migrations_online():\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_online",
+        "kind": 2,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "def run_migrations_online():\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,\n    )\n    with connectable.connect() as connection:\n        context.configure(connection=connection, target_metadata=target_metadata)\n        with context.begin_transaction():\n            context.run_migrations()",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "config = context.config\nconfig.set_main_option(\"sqlalchemy.url\", settings.DATABASE_URL)\nif config.config_file_name is not None:\n    fileConfig(config.config_file_name)\ntarget_metadata = Base.metadata\ndef run_migrations_offline():\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)\n    with context.begin_transaction():\n        context.run_migrations()",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "target_metadata",
+        "kind": 5,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "target_metadata = Base.metadata\ndef run_migrations_offline():\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)\n    with context.begin_transaction():\n        context.run_migrations()\ndef run_migrations_online():\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def register(payload: schemas.UserCreate, db: Session = Depends(get_db)):\n    \"\"\"Cria um novo usuário. Se company_id for informado, vincula à empresa existente.\"\"\"\n    existing = db.query(models.User).filter(models.User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"E-mail já cadastrado.\")\n    user = models.User(\n        email=payload.email,\n        hashed_password=hash_password(payload.password),\n        full_name=payload.full_name,\n        company_id=payload.company_id,",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def login(payload: schemas.LoginRequest, db: Session = Depends(get_db)):\n    \"\"\"Autentica usuário e retorna JWT.\"\"\"\n    user = db.query(models.User).filter(models.User.email == payload.email).first()\n    if not user or not verify_password(payload.password, user.hashed_password):\n        raise HTTPException(status_code=401, detail=\"E-mail ou senha inválidos.\")\n    token = create_access_token({\"sub\": str(user.id)})\n    return schemas.Token(access_token=token)\n@router.get(\"/me\", response_model=schemas.UserOut)\ndef me(current_user: models.User = Depends(get_current_user)):\n    return current_user",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "me",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def me(current_user: models.User = Depends(get_current_user)):\n    return current_user",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Autenticação\"])\n@router.post(\"/register\", response_model=schemas.UserOut, status_code=201)\ndef register(payload: schemas.UserCreate, db: Session = Depends(get_db)):\n    \"\"\"Cria um novo usuário. Se company_id for informado, vincula à empresa existente.\"\"\"\n    existing = db.query(models.User).filter(models.User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"E-mail já cadastrado.\")\n    user = models.User(\n        email=payload.email,\n        hashed_password=hash_password(payload.password),",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "kind": 2,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "def hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )\n    to_encode.update({\"exp\": expire})",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "kind": 2,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "def verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)\ndef get_current_user(",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "kind": 2,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "def create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)\ndef get_current_user(\n    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)\n) -> models.User:",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "kind": 2,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "def get_current_user(\n    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)\n) -> models.User:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Credenciais inválidas ou expiradas\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},\n    )\n    try:\n        payload = jwt.decode(",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\noauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/auth/login\")\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "oauth2_scheme",
+        "kind": 5,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/auth/login\")\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "create_company",
+        "kind": 2,
+        "importPath": "app.companies.routes",
+        "description": "app.companies.routes",
+        "peekOfCode": "def create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj)\n    db.add(company)\n    db.commit()\n    db.refresh(company)",
+        "detail": "app.companies.routes",
+        "documentation": {}
+    },
+    {
+        "label": "list_companies",
+        "kind": 2,
+        "importPath": "app.companies.routes",
+        "description": "app.companies.routes",
+        "peekOfCode": "def list_companies(\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    return db.query(models.Company).all()\n@router.get(\"/{company_id}\", response_model=schemas.CompanyOut)\ndef get_company(\n    company_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),",
+        "detail": "app.companies.routes",
+        "documentation": {}
+    },
+    {
+        "label": "get_company",
+        "kind": 2,
+        "importPath": "app.companies.routes",
+        "description": "app.companies.routes",
+        "peekOfCode": "def get_company(\n    company_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    company = db.query(models.Company).filter(models.Company.id == company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada.\")\n    return company\n@router.delete(\"/{company_id}\", status_code=204)",
+        "detail": "app.companies.routes",
+        "documentation": {}
+    },
+    {
+        "label": "delete_company",
+        "kind": 2,
+        "importPath": "app.companies.routes",
+        "description": "app.companies.routes",
+        "peekOfCode": "def delete_company(\n    company_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    company = db.query(models.Company).filter(models.Company.id == company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada.\")\n    db.delete(company)\n    db.commit()",
+        "detail": "app.companies.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.companies.routes",
+        "description": "app.companies.routes",
+        "peekOfCode": "router = APIRouter(prefix=\"/companies\", tags=[\"Empresas\"])\n@router.post(\"/\", response_model=schemas.CompanyOut, status_code=201)\ndef create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj)\n    db.add(company)",
+        "detail": "app.companies.routes",
+        "documentation": {}
+    },
+    {
+        "label": "create_employee",
+        "kind": 2,
+        "importPath": "app.employees.routes",
+        "description": "app.employees.routes",
+        "peekOfCode": "def create_employee(\n    payload: schemas.EmployeeCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    company = db.query(models.Company).filter(models.Company.id == payload.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada.\")\n    employee = models.Employee(\n        name=payload.name,",
+        "detail": "app.employees.routes",
+        "documentation": {}
+    },
+    {
+        "label": "list_employees",
+        "kind": 2,
+        "importPath": "app.employees.routes",
+        "description": "app.employees.routes",
+        "peekOfCode": "def list_employees(\n    company_id: int = None,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    query = db.query(models.Employee)\n    if company_id:\n        query = query.filter(models.Employee.company_id == company_id)\n    return query.all()\n@router.get(\"/{employee_id}\", response_model=schemas.EmployeeOut)",
+        "detail": "app.employees.routes",
+        "documentation": {}
+    },
+    {
+        "label": "get_employee",
+        "kind": 2,
+        "importPath": "app.employees.routes",
+        "description": "app.employees.routes",
+        "peekOfCode": "def get_employee(\n    employee_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    employee = db.query(models.Employee).filter(models.Employee.id == employee_id).first()\n    if not employee:\n        raise HTTPException(status_code=404, detail=\"Funcionário não encontrado.\")\n    return employee\n@router.delete(\"/{employee_id}\", status_code=204)",
+        "detail": "app.employees.routes",
+        "documentation": {}
+    },
+    {
+        "label": "delete_employee",
+        "kind": 2,
+        "importPath": "app.employees.routes",
+        "description": "app.employees.routes",
+        "peekOfCode": "def delete_employee(\n    employee_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    employee = db.query(models.Employee).filter(models.Employee.id == employee_id).first()\n    if not employee:\n        raise HTTPException(status_code=404, detail=\"Funcionário não encontrado.\")\n    db.delete(employee)\n    db.commit()",
+        "detail": "app.employees.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.employees.routes",
+        "description": "app.employees.routes",
+        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Funcionários\"])\n@router.post(\"/\", response_model=schemas.EmployeeOut, status_code=201)\ndef create_employee(\n    payload: schemas.EmployeeCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    company = db.query(models.Company).filter(models.Company.id == payload.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada.\")",
+        "detail": "app.employees.routes",
+        "documentation": {}
+    },
+    {
+        "label": "aggregate_and_export_bytes",
+        "kind": 2,
+        "importPath": "app.export.excel_builder",
+        "description": "app.export.excel_builder",
+        "peekOfCode": "def aggregate_and_export_bytes(results: list[str]) -> bytes:\n    \"\"\"\n    Recebe a lista de textos (um por chunk processado pelo Gemini, no formato\n    TAB-separated) e monta um único arquivo .xlsx, retornando os bytes\n    (em vez de salvar em disco).\n    \"\"\"\n    wb = openpyxl.Workbook()\n    ws = wb.active\n    ws.title = \"Resultado\"\n    alerts = []",
+        "detail": "app.export.excel_builder",
+        "documentation": {}
+    },
+    {
+        "label": "split_pdf_text",
+        "kind": 2,
+        "importPath": "app.jobs.processor",
+        "description": "app.jobs.processor",
+        "peekOfCode": "def split_pdf_text(pdf_path: str, chunk_size: int) -> list[str]:\n    \"\"\"\n    Divide o PDF em blocos de texto de N páginas (padrão 50).\n    Retorna lista de strings, cada uma correspondente a um bloco.\n    \"\"\"\n    doc = fitz.open(pdf_path)\n    total_pages = len(doc)\n    if total_pages > settings.MAX_PDF_PAGES:\n        raise ValueError(\n            f\"PDF possui {total_pages} páginas, \"",
+        "detail": "app.jobs.processor",
+        "documentation": {}
+    },
+    {
+        "label": "process_job",
+        "kind": 2,
+        "importPath": "app.jobs.processor",
+        "description": "app.jobs.processor",
+        "peekOfCode": "def process_job(job_id: int, pdf_path: str, role_id: int, gemini_client) -> str:\n    \"\"\"\n    Orquestra: split do PDF -> chamada ao Gemini por chunk (via handler do role)\n    -> agregação em planilha Excel. Retorna o path do arquivo gerado.\n    \"\"\"\n    handler = get_role_handler(role_id)\n    chunks = split_pdf_text(pdf_path, settings.PDF_CHUNK_SIZE)\n    results = []\n    for chunk in chunks:\n        result_text = handler(chunk, gemini_client)",
+        "detail": "app.jobs.processor",
+        "documentation": {}
+    },
+    {
+        "label": "get_available_roles",
+        "kind": 2,
+        "importPath": "app.jobs.routes",
+        "description": "app.jobs.routes",
+        "peekOfCode": "def get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_pdf(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: Optional[int] = Form(None),\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),",
+        "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "list_jobs",
+        "kind": 2,
+        "importPath": "app.jobs.routes",
+        "description": "app.jobs.routes",
+        "peekOfCode": "def list_jobs(\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    return db.query(models.Job).filter(models.Job.user_id == current_user.id).all()\n@router.get(\"/{job_id}/status\", response_model=schemas.JobOut)\ndef job_status(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),",
+        "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "job_status",
+        "kind": 2,
+        "importPath": "app.jobs.routes",
+        "description": "app.jobs.routes",
+        "peekOfCode": "def job_status(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    job = db.query(models.Job).filter(\n        models.Job.id == job_id, models.Job.user_id == current_user.id\n    ).first()\n    if not job:\n        raise HTTPException(status_code=404, detail=\"Job não encontrado.\")",
+        "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "download_result",
+        "kind": 2,
+        "importPath": "app.jobs.routes",
+        "description": "app.jobs.routes",
+        "peekOfCode": "def download_result(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    job = db.query(models.Job).filter(\n        models.Job.id == job_id, models.Job.user_id == current_user.id\n    ).first()\n    if not job:\n        raise HTTPException(status_code=404, detail=\"Job não encontrado.\")",
+        "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.jobs.routes",
+        "description": "app.jobs.routes",
+        "peekOfCode": "router = APIRouter(prefix=\"/jobs\", tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_pdf(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: Optional[int] = Form(None),",
+        "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "run_extraction_job",
+        "kind": 2,
+        "importPath": "app.jobs.tasks",
+        "description": "app.jobs.tasks",
+        "peekOfCode": "def run_extraction_job(self, job_id: int):\n    db = SessionLocal()\n    job = db.query(models.Job).get(job_id)\n    if not job:\n        db.close()\n        return\n    job.status = \"processing\"\n    db.commit()\n    try:\n        client = genai.GenerativeModel(settings.GEMINI_MODEL)",
+        "detail": "app.jobs.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "get_role_handler",
+        "kind": 2,
+        "importPath": "app.roles.registry",
+        "description": "app.roles.registry",
+        "peekOfCode": "def get_role_handler(role_id: int):\n    handler = ROLE_REGISTRY.get(role_id)\n    if handler is None:\n        raise ValueError(f\"Role ID {role_id} não está mapeada no registry.\")\n    return handler\ndef list_roles():\n    return [{\"id\": k, \"label\": v} for k, v in ROLE_LABELS.items()]",
+        "detail": "app.roles.registry",
+        "documentation": {}
+    },
+    {
+        "label": "list_roles",
+        "kind": 2,
+        "importPath": "app.roles.registry",
+        "description": "app.roles.registry",
+        "peekOfCode": "def list_roles():\n    return [{\"id\": k, \"label\": v} for k, v in ROLE_LABELS.items()]",
+        "detail": "app.roles.registry",
+        "documentation": {}
+    },
+    {
+        "label": "ROLE_REGISTRY",
+        "kind": 5,
+        "importPath": "app.roles.registry",
+        "description": "app.roles.registry",
+        "peekOfCode": "ROLE_REGISTRY = {\n    1: role_1_financeiro.execute,\n    2: role_2_ponto.execute,\n    3: role_3_generico.execute,\n}\nROLE_LABELS = {\n    1: \"Extração Financeira (Holerites / Fichas Financeiras)\",\n    2: \"Extração de Cartão de Ponto (Espelho de Frequência)\",\n    3: \"Modo Genérico / Extensível\",\n}",
+        "detail": "app.roles.registry",
+        "documentation": {}
+    },
+    {
+        "label": "ROLE_LABELS",
+        "kind": 5,
+        "importPath": "app.roles.registry",
+        "description": "app.roles.registry",
+        "peekOfCode": "ROLE_LABELS = {\n    1: \"Extração Financeira (Holerites / Fichas Financeiras)\",\n    2: \"Extração de Cartão de Ponto (Espelho de Frequência)\",\n    3: \"Modo Genérico / Extensível\",\n}\ndef get_role_handler(role_id: int):\n    handler = ROLE_REGISTRY.get(role_id)\n    if handler is None:\n        raise ValueError(f\"Role ID {role_id} não está mapeada no registry.\")\n    return handler",
+        "detail": "app.roles.registry",
+        "documentation": {}
+    },
+    {
+        "label": "load_prompt",
+        "kind": 2,
+        "importPath": "app.roles.role_1_financeiro",
+        "description": "app.roles.role_1_financeiro",
+        "peekOfCode": "def load_prompt() -> str:\n    return PROMPT_PATH.read_text(encoding=\"utf-8\")\ndef execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 1: Extração de dados financeiros (holerites/fichas financeiras).\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_1_financeiro",
+        "documentation": {}
+    },
+    {
+        "label": "execute",
+        "kind": 2,
+        "importPath": "app.roles.role_1_financeiro",
+        "description": "app.roles.role_1_financeiro",
+        "peekOfCode": "def execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 1: Extração de dados financeiros (holerites/fichas financeiras).\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_1_financeiro",
+        "documentation": {}
+    },
+    {
+        "label": "PROMPT_PATH",
+        "kind": 5,
+        "importPath": "app.roles.role_1_financeiro",
+        "description": "app.roles.role_1_financeiro",
+        "peekOfCode": "PROMPT_PATH = Path(__file__).resolve().parent.parent / \"prompts\" / \"role_1.txt\"\ndef load_prompt() -> str:\n    return PROMPT_PATH.read_text(encoding=\"utf-8\")\ndef execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 1: Extração de dados financeiros (holerites/fichas financeiras).\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_1_financeiro",
+        "documentation": {}
+    },
+    {
+        "label": "load_prompt",
+        "kind": 2,
+        "importPath": "app.roles.role_2_ponto",
+        "description": "app.roles.role_2_ponto",
+        "peekOfCode": "def load_prompt() -> str:\n    return PROMPT_PATH.read_text(encoding=\"utf-8\")\ndef execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 2: Extração de cartão de ponto / espelho de frequência.\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_2_ponto",
+        "documentation": {}
+    },
+    {
+        "label": "execute",
+        "kind": 2,
+        "importPath": "app.roles.role_2_ponto",
+        "description": "app.roles.role_2_ponto",
+        "peekOfCode": "def execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 2: Extração de cartão de ponto / espelho de frequência.\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_2_ponto",
+        "documentation": {}
+    },
+    {
+        "label": "PROMPT_PATH",
+        "kind": 5,
+        "importPath": "app.roles.role_2_ponto",
+        "description": "app.roles.role_2_ponto",
+        "peekOfCode": "PROMPT_PATH = Path(__file__).resolve().parent.parent / \"prompts\" / \"role_2.txt\"\ndef load_prompt() -> str:\n    return PROMPT_PATH.read_text(encoding=\"utf-8\")\ndef execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 2: Extração de cartão de ponto / espelho de frequência.\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_2_ponto",
+        "documentation": {}
+    },
+    {
+        "label": "load_prompt",
+        "kind": 2,
+        "importPath": "app.roles.role_3_generico",
+        "description": "app.roles.role_3_generico",
+        "peekOfCode": "def load_prompt() -> str:\n    return PROMPT_PATH.read_text(encoding=\"utf-8\")\ndef execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 3: Placeholder genérico/extensível para novos tipos de documento.\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_3_generico",
+        "documentation": {}
+    },
+    {
+        "label": "execute",
+        "kind": 2,
+        "importPath": "app.roles.role_3_generico",
+        "description": "app.roles.role_3_generico",
+        "peekOfCode": "def execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 3: Placeholder genérico/extensível para novos tipos de documento.\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_3_generico",
+        "documentation": {}
+    },
+    {
+        "label": "PROMPT_PATH",
+        "kind": 5,
+        "importPath": "app.roles.role_3_generico",
+        "description": "app.roles.role_3_generico",
+        "peekOfCode": "PROMPT_PATH = Path(__file__).resolve().parent.parent / \"prompts\" / \"role_3.txt\"\ndef load_prompt() -> str:\n    return PROMPT_PATH.read_text(encoding=\"utf-8\")\ndef execute(text_chunk: str, gemini_client) -> str:\n    \"\"\"Modo 3: Placeholder genérico/extensível para novos tipos de documento.\"\"\"\n    prompt = load_prompt()\n    full_prompt = f\"{prompt}\\n\\n--- TRECHO DO DOCUMENTO ---\\n{text_chunk}\"\n    response = gemini_client.generate_content(full_prompt)\n    return response.text or \"\"",
+        "detail": "app.roles.role_3_generico",
+        "documentation": {}
+    },
+    {
+        "label": "save_file",
+        "kind": 2,
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "peekOfCode": "def save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    return key\ndef get_file(key: str) -> bytes | None:\n    \"\"\"Recupera o arquivo do Redis. Retorna None se expirado/inexistente.\"\"\"\n    return _client.get(key)\ndef delete_file(key: str) -> None:\n    _client.delete(key)",
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "get_file",
+        "kind": 2,
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "peekOfCode": "def get_file(key: str) -> bytes | None:\n    \"\"\"Recupera o arquivo do Redis. Retorna None se expirado/inexistente.\"\"\"\n    return _client.get(key)\ndef delete_file(key: str) -> None:\n    _client.delete(key)",
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "delete_file",
+        "kind": 2,
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "peekOfCode": "def delete_file(key: str) -> None:\n    _client.delete(key)",
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "_client",
+        "kind": 5,
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "peekOfCode": "_client = redis.from_url(settings.CELERY_BROKER_URL.rsplit(\"/\", 1)[0] + \"/2\", decode_responses=False)\ndef save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    return key\ndef get_file(key: str) -> bytes | None:\n    \"\"\"Recupera o arquivo do Redis. Retorna None se expirado/inexistente.\"\"\"\n    return _client.get(key)\ndef delete_file(key: str) -> None:\n    _client.delete(key)",
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "celery_app",
+        "kind": 5,
+        "importPath": "app.celery_app",
+        "description": "app.celery_app",
+        "peekOfCode": "celery_app = Celery(\n    \"pontoai\",\n    broker=settings.CELERY_BROKER_URL,\n    backend=settings.CELERY_RESULT_BACKEND,\n    include=[\"app.jobs.tasks\"],\n)\ncelery_app.conf.update(\n    task_serializer=\"json\",\n    accept_content=[\"json\"],\n    result_serializer=\"json\",",
+        "detail": "app.celery_app",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "kind": 6,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "class Settings(BaseSettings):\n    DATABASE_URL: str\n    CELERY_BROKER_URL: str\n    CELERY_RESULT_BACKEND: str\n    JWT_SECRET: str\n    JWT_ALGORITHM: str = \"HS256\"\n    JWT_EXPIRE_MINUTES: int = 60\n    GEMINI_API_KEY: str\n    GEMINI_MODEL: str = \"gemini-2.5-pro\"\n    FILE_TTL_SECONDS: int = 86400  # 24h — expiração automática do PDF e do resultado no Redis",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 5,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "settings = Settings()",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "Base = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "health_check",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def health_check():\n    return {\"status\": \"ok\"}",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "app = FastAPI(\n    title=\"PontoAI — Extração Pericial de Ponto e Financeiro\",\n    description=(\n        \"API para extração automatizada de dados de cartões de ponto e \"\n        \"fichas financeiras a partir de PDFs, utilizando Gemini 2.5 Pro.\"\n    ),\n    version=\"1.0.0\",\n)\napp.add_middleware(\n    CORSMiddleware,",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "Company",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True)\n    created_at = Column(DateTime, server_default=func.now())\n    users = relationship(\"User\", back_populates=\"company\")\n    employees = relationship(\"Employee\", back_populates=\"company\")\nclass User(Base):\n    __tablename__ = \"users\"",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True)\n    email = Column(String, unique=True, nullable=False)\n    hashed_password = Column(String, nullable=False)\n    full_name = Column(String, nullable=True)\n    is_active = Column(Boolean, default=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=True)\n    created_at = Column(DateTime, server_default=func.now())\n    company = relationship(\"Company\", back_populates=\"users\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Employee(Base):\n    __tablename__ = \"employees\"\n    id = Column(Integer, primary_key=True)\n    name = Column(String, nullable=False)\n    cpf = Column(String, nullable=True)\n    role_title = Column(String, nullable=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=False)\n    created_at = Column(DateTime, server_default=func.now())\n    company = relationship(\"Company\", back_populates=\"employees\")\n    jobs = relationship(\"Job\", back_populates=\"employee\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Job",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Job(Base):\n    __tablename__ = \"jobs\"\n    id = Column(Integer, primary_key=True)\n    employee_id = Column(Integer, ForeignKey(\"employees.id\"), nullable=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    role_mode = Column(Integer, nullable=False)  # 1, 2 ou 3\n    original_filename = Column(String, nullable=True)\n    pdf_key = Column(String, nullable=False)       # chave do PDF original no Redis\n    result_key = Column(String, nullable=True)      # chave do Excel gerado no Redis\n    status = Column(String, nullable=False, default=\"pending\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class UserCreate(BaseModel):\n    email: EmailStr\n    password: str\n    full_name: Optional[str] = None\n    company_id: Optional[int] = None\nclass UserOut(BaseModel):\n    id: int\n    email: EmailStr\n    full_name: Optional[str]\n    company_id: Optional[int]",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserOut",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class UserOut(BaseModel):\n    id: int\n    email: EmailStr\n    full_name: Optional[str]\n    company_id: Optional[int]\n    class Config:\n        from_attributes = True\nclass Token(BaseModel):\n    access_token: str\n    token_type: str = \"bearer\"",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Token",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str = \"bearer\"\nclass LoginRequest(BaseModel):\n    email: EmailStr\n    password: str\n# ---------- COMPANY ----------\nclass CompanyCreate(BaseModel):\n    name: str\n    cnpj: Optional[str] = None",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequest",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class LoginRequest(BaseModel):\n    email: EmailStr\n    password: str\n# ---------- COMPANY ----------\nclass CompanyCreate(BaseModel):\n    name: str\n    cnpj: Optional[str] = None\nclass CompanyOut(BaseModel):\n    id: int\n    name: str",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class CompanyCreate(BaseModel):\n    name: str\n    cnpj: Optional[str] = None\nclass CompanyOut(BaseModel):\n    id: int\n    name: str\n    cnpj: Optional[str]\n    class Config:\n        from_attributes = True\n# ---------- EMPLOYEE ----------",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyOut",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class CompanyOut(BaseModel):\n    id: int\n    name: str\n    cnpj: Optional[str]\n    class Config:\n        from_attributes = True\n# ---------- EMPLOYEE ----------\nclass EmployeeCreate(BaseModel):\n    name: str\n    cpf: Optional[str] = None",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class EmployeeCreate(BaseModel):\n    name: str\n    cpf: Optional[str] = None\n    role_title: Optional[str] = None\n    company_id: int\nclass EmployeeOut(BaseModel):\n    id: int\n    name: str\n    cpf: Optional[str]\n    role_title: Optional[str]",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeOut",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class EmployeeOut(BaseModel):\n    id: int\n    name: str\n    cpf: Optional[str]\n    role_title: Optional[str]\n    company_id: int\n    class Config:\n        from_attributes = True\n# ---------- JOB ----------\nclass JobOut(BaseModel):",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "JobOut",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class JobOut(BaseModel):\n    id: int\n    status: str\n    role_mode: int\n    original_filename: Optional[str]\n    result_path: Optional[str]\n    error_message: Optional[str]\n    created_at: datetime\n    finished_at: Optional[datetime]\n    class Config:",
+        "detail": "app.schemas",
+        "documentation": {}
+    }
+]

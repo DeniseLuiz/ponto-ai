@@ -1,10 +1,10 @@
 services:
-  # API principal
   - type: web
     name: pontoai-api
     runtime: docker
     dockerfilePath: ./Dockerfile
-    plan: standard
+    dockerCommand: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    plan: starter
     region: oregon
     healthCheckPath: /health
     envVars:
@@ -16,10 +16,16 @@ services:
         value: HS256
       - key: JWT_EXPIRE_MINUTES
         value: "60"
-      - key: GJR-Pericia
+      - key: GEMINI_API_KEY
         sync: false
       - key: GEMINI_MODEL
         value: gemini-2.5-pro
+      - key: FILE_TTL_SECONDS
+        value: "86400"
+      - key: MAX_PDF_PAGES
+        value: "5000"
+      - key: PDF_CHUNK_SIZE
+        value: "50"
       - key: CELERY_BROKER_URL
         fromService:
           type: redis
@@ -30,23 +36,27 @@ services:
           type: redis
           name: pontoai-redis
           property: connectionString
-      - key: STORAGE_BUCKET
-        sync: false
 
-  # Worker Celery (processa PDFs)
   - type: worker
     name: pontoai-worker
     runtime: docker
-    dockerfilePath: ./Dockerfile.worker
-    plan: standard
+    dockerfilePath: ./Dockerfile
+    dockerCommand: celery -A app.celery_app.celery_app worker --loglevel=info --concurrency=2
+    plan: starter
     region: oregon
     envVars:
       - key: DATABASE_URL
         sync: false
-      - key: GJR-Pericia
+      - key: GEMINI_API_KEY
         sync: false
       - key: GEMINI_MODEL
         value: gemini-2.5-pro
+      - key: FILE_TTL_SECONDS
+        value: "86400"
+      - key: MAX_PDF_PAGES
+        value: "5000"
+      - key: PDF_CHUNK_SIZE
+        value: "50"
       - key: CELERY_BROKER_URL
         fromService:
           type: redis
@@ -57,20 +67,13 @@ services:
           type: redis
           name: pontoai-redis
           property: connectionString
-      - key: STORAGE_BUCKET
-        sync: false
 
-  # Frontend estático
   - type: web
     name: pontoai-frontend
     runtime: static
     buildCommand: ""
     staticPublishPath: ./frontend
-    envVars:
-      - key: API_BASE_URL
-        sync: false
 
-  # Redis interno do Render
   - type: redis
     name: pontoai-redis
     plan: starter

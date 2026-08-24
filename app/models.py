@@ -52,8 +52,8 @@ class Job(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     role_mode = Column(Integer, nullable=False)  # 1, 2 ou 3
     original_filename = Column(String, nullable=True)
-    pdf_path = Column(String, nullable=False)
-    result_path = Column(String, nullable=True)
+    pdf_key = Column(String, nullable=False)       # chave do PDF original no Redis
+    result_key = Column(String, nullable=True)      # chave do Excel gerado no Redis
     status = Column(String, nullable=False, default="pending")
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, server_default=func.now())

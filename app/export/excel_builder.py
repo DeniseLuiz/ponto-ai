@@ -1,11 +1,12 @@
 import openpyxl
-from pathlib import Path
+from io import BytesIO
 
 
-def aggregate_and_export(results: list[str], job_id: int, storage_dir: str) -> str:
+def aggregate_and_export_bytes(results: list[str]) -> bytes:
     """
     Recebe a lista de textos (um por chunk processado pelo Gemini, no formato
-    TAB-separated) e monta um único arquivo .xlsx.
+    TAB-separated) e monta um único arquivo .xlsx, retornando os bytes
+    (em vez de salvar em disco).
     """
     wb = openpyxl.Workbook()
     ws = wb.active
@@ -32,8 +33,7 @@ def aggregate_and_export(results: list[str], job_id: int, storage_dir: str) -> s
         for i, alert in enumerate(alerts, start=1):
             alert_ws.cell(row=i, column=1, value=alert)
 
-    out_dir = Path(storage_dir) / "results"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / f"result_{job_id}.xlsx"
-    wb.save(path)
-    return str(path)
+    buffer = BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+    return buffer.read()

@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str
     GEMINI_MODEL: str = "gemini-2.5-pro"
 
-    STORAGE_DIR: str = "/app/storage"
+    FILE_TTL_SECONDS: int = 86400  # 24h — expiração automática do PDF e do resultado no Redis
+
     MAX_PDF_PAGES: int = 5000
     PDF_CHUNK_SIZE: int = 50
 
