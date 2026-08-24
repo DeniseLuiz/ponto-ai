@@ -1,0 +1,78 @@
+services:
+  # API principal
+  - type: web
+    name: pontoai-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: standard
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_EXPIRE_MINUTES
+        value: "60"
+      - key: GJR-Pericia
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-pro
+      - key: CELERY_BROKER_URL
+        fromService:
+          type: redis
+          name: pontoai-redis
+          property: connectionString
+      - key: CELERY_RESULT_BACKEND
+        fromService:
+          type: redis
+          name: pontoai-redis
+          property: connectionString
+      - key: STORAGE_BUCKET
+        sync: false
+
+  # Worker Celery (processa PDFs)
+  - type: worker
+    name: pontoai-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile.worker
+    plan: standard
+    region: oregon
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GJR-Pericia
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-pro
+      - key: CELERY_BROKER_URL
+        fromService:
+          type: redis
+          name: pontoai-redis
+          property: connectionString
+      - key: CELERY_RESULT_BACKEND
+        fromService:
+          type: redis
+          name: pontoai-redis
+          property: connectionString
+      - key: STORAGE_BUCKET
+        sync: false
+
+  # Frontend estático
+  - type: web
+    name: pontoai-frontend
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./frontend
+    envVars:
+      - key: API_BASE_URL
+        sync: false
+
+  # Redis interno do Render
+  - type: redis
+    name: pontoai-redis
+    plan: starter
+    region: oregon
+    ipAllowList: []

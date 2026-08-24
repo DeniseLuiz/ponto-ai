@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>PontoAI — Extração de Documentos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>PontoAI</h1>
+    <p class="subtitle">Extração automatizada de Ponto e Financeiro via IA</p>
+
+    <!-- LOGIN -->
+    <section id="login-section" class="card">
+      <h2>Login</h2>
+      <input type="email" id="email" placeholder="E-mail" />
+      <input type="password" id="password" placeholder="Senha" />
+      <button onclick="login()">Entrar</button>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <!-- UPLOAD -->
+    <section id="upload-section" class="card hidden">
+      <h2>Enviar Documento</h2>
+
+      <label>Selecione o Modo (Role):</label>
+      <div class="role-buttons">
+        <button class="role-btn" data-role="1" onclick="selectRole(1)">Modo 1 — Financeiro</button>
+        <button class="role-btn" data-role="2" onclick="selectRole(2)">Modo 2 — Ponto</button>
+        <button class="role-btn" data-role="3" onclick="selectRole(3)">Modo 3 — Genérico</button>
+      </div>
+
+      <input type="file" id="pdf-file" accept="application/pdf" />
+      <button onclick="uploadPdf()">Enviar PDF</button>
+
+      <p id="upload-status"></p>
+    </section>
+
+    <!-- JOBS -->
+    <section id="jobs-section" class="card hidden">
+      <h2>Meus Processamentos</h2>
+      <button onclick="loadJobs()">Atualizar Lista</button>
+      <table id="jobs-table">
+        <thead>
+          <tr><th>ID</th><th>Modo</th><th>Arquivo</th><th>Status</th><th>Ação</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
