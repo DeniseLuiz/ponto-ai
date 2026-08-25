@@ -46,6 +46,12 @@ services:
     envVars:
       - key: DATABASE_URL
         sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_EXPIRE_MINUTES
+        value: "60"
       - key: GEMINI_API_KEY
         sync: false
       - key: GEMINI_MODEL
