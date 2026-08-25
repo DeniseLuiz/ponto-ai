@@ -798,11 +798,51 @@
         "documentation": {}
     },
     {
-        "label": "aggregate_and_export",
+        "label": "aggregate_and_export_bytes",
         "importPath": "app.export.excel_builder",
         "description": "app.export.excel_builder",
         "isExtraImport": true,
         "detail": "app.export.excel_builder",
+        "documentation": {}
+    },
+    {
+        "label": "get_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "save_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "delete_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "save_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
+        "documentation": {}
+    },
+    {
+        "label": "get_file",
+        "importPath": "app.storage.redis_storage",
+        "description": "app.storage.redis_storage",
+        "isExtraImport": true,
+        "detail": "app.storage.redis_storage",
         "documentation": {}
     },
     {
@@ -828,22 +868,6 @@
         "description": "app.jobs.tasks",
         "isExtraImport": true,
         "detail": "app.jobs.tasks",
-        "documentation": {}
-    },
-    {
-        "label": "save_file",
-        "importPath": "app.storage.redis_storage",
-        "description": "app.storage.redis_storage",
-        "isExtraImport": true,
-        "detail": "app.storage.redis_storage",
-        "documentation": {}
-    },
-    {
-        "label": "get_file",
-        "importPath": "app.storage.redis_storage",
-        "description": "app.storage.redis_storage",
-        "isExtraImport": true,
-        "detail": "app.storage.redis_storage",
         "documentation": {}
     },
     {
@@ -1334,11 +1358,11 @@
         "documentation": {}
     },
     {
-        "label": "split_pdf_text",
+        "label": "split_pdf_text_from_bytes",
         "kind": 2,
         "importPath": "app.jobs.processor",
         "description": "app.jobs.processor",
-        "peekOfCode": "def split_pdf_text(pdf_path: str, chunk_size: int) -> list[str]:\n    \"\"\"\n    Divide o PDF em blocos de texto de N páginas (padrão 50).\n    Retorna lista de strings, cada uma correspondente a um bloco.\n    \"\"\"\n    doc = fitz.open(pdf_path)\n    total_pages = len(doc)\n    if total_pages > settings.MAX_PDF_PAGES:\n        raise ValueError(\n            f\"PDF possui {total_pages} páginas, \"",
+        "peekOfCode": "def split_pdf_text_from_bytes(pdf_bytes: bytes, chunk_size: int) -> list[str]:\n    \"\"\"\n    Divide o PDF (em memória) em blocos de texto de N páginas (padrão 50).\n    Retorna lista de strings, cada uma correspondente a um bloco.\n    \"\"\"\n    doc = fitz.open(stream=pdf_bytes, filetype=\"pdf\")\n    total_pages = len(doc)\n    if total_pages > settings.MAX_PDF_PAGES:\n        doc.close()\n        raise ValueError(",
         "detail": "app.jobs.processor",
         "documentation": {}
     },
@@ -1347,7 +1371,7 @@
         "kind": 2,
         "importPath": "app.jobs.processor",
         "description": "app.jobs.processor",
-        "peekOfCode": "def process_job(job_id: int, pdf_path: str, role_id: int, gemini_client) -> str:\n    \"\"\"\n    Orquestra: split do PDF -> chamada ao Gemini por chunk (via handler do role)\n    -> agregação em planilha Excel. Retorna o path do arquivo gerado.\n    \"\"\"\n    handler = get_role_handler(role_id)\n    chunks = split_pdf_text(pdf_path, settings.PDF_CHUNK_SIZE)\n    results = []\n    for chunk in chunks:\n        result_text = handler(chunk, gemini_client)",
+        "peekOfCode": "def process_job(job_id: int, pdf_key: str, role_id: int, gemini_client) -> str:\n    \"\"\"\n    Orquestra: busca o PDF no Redis -> split em chunks -> chamada ao Gemini\n    por chunk (via handler do role) -> agregação em planilha Excel salva\n    no Redis. Retorna a chave (result_key) do arquivo gerado.\n    \"\"\"\n    pdf_bytes = get_file(pdf_key)\n    if pdf_bytes is None:\n        raise ValueError(\"Arquivo PDF expirado ou não encontrado no storage temporário.\")\n    handler = get_role_handler(role_id)",
         "detail": "app.jobs.processor",
         "documentation": {}
     },
