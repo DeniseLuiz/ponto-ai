@@ -75,7 +75,7 @@ services:
 
   - type: web
     name: pontoai-frontend
-    runtime: static
+    env: static
     buildCommand: "echo 'no build step needed'"
     staticPublishPath: ./frontend
 
