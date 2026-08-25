@@ -30,6 +30,7 @@ async function login() {
 }
 
 function selectRole(roleId) {
+  console.log(roleId)
   selectedRole = roleId;
   document.querySelectorAll(".role-btn").forEach((btn) => {
     btn.classList.toggle("active", Number(btn.dataset.role) === roleId);
