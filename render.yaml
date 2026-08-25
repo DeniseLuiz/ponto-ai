@@ -70,7 +70,7 @@ services:
   - type: web
     name: pontoai-frontend
     runtime: static
-    buildCommand: ""
+    buildCommand: "echo 'no build step needed'"
     staticPublishPath: ./frontend
 
   - type: redis
