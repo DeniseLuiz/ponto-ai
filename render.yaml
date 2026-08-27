@@ -1,13 +1,3 @@
-envVarGroups:
-  - name: pontoai-shared-env
-    envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: JWT_SECRET
-        sync: false
-      - key: GEMINI_API_KEY
-        sync: false
-
 services:
   - type: web
     name: pontoai-api
@@ -17,9 +7,8 @@ services:
     plan: starter
     region: oregon
     healthCheckPath: /health
-    fromEnvGroup:
-      - name: pontoai-shared-env
     envVars:
+      - fromGroup: pontoai-shared-env
       - key: JWT_ALGORITHM
         value: HS256
       - key: JWT_EXPIRE_MINUTES
@@ -49,9 +38,8 @@ services:
     dockerfilePath: ./Dockerfile.worker
     plan: starter
     region: oregon
-    fromEnvGroup:
-      - name: pontoai-shared-env
     envVars:
+      - fromGroup: pontoai-shared-env
       - key: JWT_ALGORITHM
         value: HS256
       - key: JWT_EXPIRE_MINUTES
@@ -86,3 +74,13 @@ services:
     plan: starter
     region: oregon
     ipAllowList: []
+
+envVarGroups:
+  - name: pontoai-shared-env
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
