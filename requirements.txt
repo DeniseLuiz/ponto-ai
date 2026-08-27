@@ -1,19 +1,31 @@
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
+# Framework Web & API
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.7.0
+pydantic-settings==2.5.2
+python-multipart>=0.0.9
+email-validator==2.2.0
+
+# Banco de Dados & Migrações
 sqlalchemy==2.0.35
 alembic==1.13.2
 psycopg2-binary==2.9.9
-pydantic==2.9.2
-pydantic-settings==2.5.2
+
+# Segurança & Autenticação
 python-jose[cryptography]==3.3.0
+pyjwt>=2.8.0
 passlib[bcrypt]==1.7.4
-python-multipart==0.0.9
-celery==5.4.0
-redis==5.0.8
-openpyxl==3.1.5
-google-generativeai==0.8.1
-python-dotenv==1.0.1
-email-validator==2.2.0
+bcrypt<4.0.0
+
+# Processamento de Dados & PDF/Excel
+pandas>=2.2.0
+openpyxl>=3.1.5
 PyMuPDF>=1.23.0
 
+# Tarefas Assíncronas & Cache
+celery==5.4.0
+redis==5.0.8
 
+# Inteligência Artificial & Utilitários
+google-generativeai==0.8.1
+python-dotenv==1.0.1
