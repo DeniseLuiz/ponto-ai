@@ -1,24 +1,29 @@
-services:
-  - type: web
-    name: pontoai-api
-    runtime: docker
-    env: python
-    dockerfilePath: ./Dockerfile
-    dockerCommand: ./start-api.sh
-    plan: starter
-    region: oregon
-    healthCheckPath: /health
+envVarGroups:
+  - name: pontoai-shared-env
     envVars:
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
         sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+
+services:
+  - type: web
+    name: pontoai-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerCommand: ./start-api.sh
+    plan: starter
+    region: oregon
+    healthCheckPath: /health
+    fromEnvGroup:
+      - name: pontoai-shared-env
+    envVars:
       - key: JWT_ALGORITHM
         value: HS256
       - key: JWT_EXPIRE_MINUTES
         value: "60"
-      - key: GEMINI_API_KEY
-        sync: false
       - key: GEMINI_MODEL
         value: gemini-2.5-pro
       - key: FILE_TTL_SECONDS
@@ -27,8 +32,6 @@ services:
         value: "5000"
       - key: PDF_CHUNK_SIZE
         value: "50"
-      - key: PYTHON_VERSION
-        value: 3.12.0
       - key: CELERY_BROKER_URL
         fromService:
           type: redis
@@ -46,17 +49,13 @@ services:
     dockerfilePath: ./Dockerfile.worker
     plan: starter
     region: oregon
+    fromEnvGroup:
+      - name: pontoai-shared-env
     envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: JWT_SECRET
-        sync: false
       - key: JWT_ALGORITHM
         value: HS256
       - key: JWT_EXPIRE_MINUTES
         value: "60"
-      - key: GEMINI_API_KEY
-        sync: false
       - key: GEMINI_MODEL
         value: gemini-2.5-pro
       - key: FILE_TTL_SECONDS
@@ -78,8 +77,8 @@ services:
 
   - type: web
     name: pontoai-frontend
-    env: static
-    buildCommand: "echo 'no build step needed'"
+    runtime: static
+    buildCommand: ""
     staticPublishPath: ./frontend
 
   - type: redis
