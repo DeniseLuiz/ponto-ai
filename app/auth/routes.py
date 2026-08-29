@@ -1,48 +1,44 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-
 from app.database import get_db
-from app import models, schemas
-from app.auth.security import (
-    hash_password,
-    verify_password,
-    create_access_token,
-    get_current_user,
-)
+from app.models import Employee, Company
+from app.schemas import LoginRequest, TokenResponse
+from app.auth.security import verify_password, create_access_token
+from app.redis import save_user_session
 
-router = APIRouter(prefix="/auth", tags=["Autenticação"])
+router = APIRouter(prefix="/auth", tags=["Auth"])
 
+@router.post("/login", response_model=TokenResponse)
+def login(payload: LoginRequest, db: Session = Depends(get_db)):
+    # 1. Busca o funcionário pelo username
+    employee = db.query(Employee).filter(Employee.username == payload.username).first()
+    if not employee or not verify_password(payload.password, employee.password_hash):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Usuário ou senha inválidos"
+        )
 
-@router.post("/register", response_model=schemas.UserOut, status_code=201)
-def register(payload: schemas.UserCreate, db: Session = Depends(get_db)):
-    """Cria um novo usuário. Se company_id for informado, vincula à empresa existente."""
-    existing = db.query(models.User).filter(models.User.email == payload.email).first()
-    if existing:
-        raise HTTPException(status_code=400, detail="E-mail já cadastrado.")
+    # 2. Bloqueia acesso caso o funcionário esteja inativo
+    if not employee.active:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Acesso negado: Funcionário inativo"
+        )
 
-    user = models.User(
-        email=payload.email,
-        hashed_password=hash_password(payload.password),
-        full_name=payload.full_name,
-        company_id=payload.company_id,
+    # 3. Busca e valida status da empresa
+    company = db.query(Company).filter(Company.id == employee.company_id).first()
+    if not company or not company.active:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Acesso negado: Empresa inativa ou não encontrada"
+        )
+
+    # 4. Gera o Token e um novo session_id único
+    token, session_id = create_access_token(
+        data={"sub": str(employee.id), "company_id": str(company.id)}
     )
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user
 
+    # 5. Sobrescreve a sessão ativa no Redis (Derruba qualquer outro login ativo deste usuário)
+    save_user_session(employee_id=str(employee.id), session_id=session_id)
 
-@router.post("/login", response_model=schemas.Token)
-def login(payload: schemas.LoginRequest, db: Session = Depends(get_db)):
-    """Autentica usuário e retorna JWT."""
-    user = db.query(models.User).filter(models.User.email == payload.email).first()
-    if not user or not verify_password(payload.password, user.hashed_password):
-        raise HTTPException(status_code=401, detail="E-mail ou senha inválidos.")
-
-    token = create_access_token({"sub": str(user.id)})
-    return schemas.Token(access_token=token)
-
-
-@router.get("/me", response_model=schemas.UserOut)
-def me(current_user: models.User = Depends(get_current_user)):
-    return current_user
+    return TokenResponse(access_token=token)

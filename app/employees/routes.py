@@ -1,68 +1,39 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-
+from uuid import UUID
 from app.database import get_db
-from app import models, schemas
-from app.auth.security import get_current_user
+from app.models import Employee, Company
+from app.schemas import EmployeeCreate, EmployeeResponse
+from app.auth.security import get_password_hash
 
-router = APIRouter(prefix="/employees", tags=["Funcionários"])
+router = APIRouter(prefix="/employees", tags=["Employees"])
 
-
-@router.post("/", response_model=schemas.EmployeeOut, status_code=201)
-def create_employee(
-    payload: schemas.EmployeeCreate,
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
-):
-    company = db.query(models.Company).filter(models.Company.id == payload.company_id).first()
+@router.post("/", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)
+def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
+    # Valida se a empresa informada existe
+    company = db.query(Company).filter(Company.id == employee_in.company_id).first()
     if not company:
-        raise HTTPException(status_code=404, detail="Empresa não encontrada.")
+        raise HTTPException(status_code=404, detail="Empresa não encontrada")
 
-    employee = models.Employee(
-        name=payload.name,
-        cpf=payload.cpf,
-        role_title=payload.role_title,
-        company_id=payload.company_id,
+    # Valida unicidade de username
+    existing_user = db.query(Employee).filter(Employee.username == employee_in.username).first()
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Username já em uso")
+
+    hashed_password = get_password_hash(employee_in.password)
+    new_employee = Employee(
+        name=employee_in.name,
+        username=employee_in.username,
+        password_hash=hashed_password,
+        active=employee_in.active,
+        company_id=employee_in.company_id
     )
-    db.add(employee)
+    db.add(new_employee)
     db.commit()
-    db.refresh(employee)
-    return employee
+    db.refresh(new_employee)
+    return new_employee
 
-
-@router.get("/", response_model=List[schemas.EmployeeOut])
-def list_employees(
-    company_id: int = None,
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
-):
-    query = db.query(models.Employee)
-    if company_id:
-        query = query.filter(models.Employee.company_id == company_id)
-    return query.all()
-
-
-@router.get("/{employee_id}", response_model=schemas.EmployeeOut)
-def get_employee(
-    employee_id: int,
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
-):
-    employee = db.query(models.Employee).filter(models.Employee.id == employee_id).first()
-    if not employee:
-        raise HTTPException(status_code=404, detail="Funcionário não encontrado.")
-    return employee
-
-
-@router.delete("/{employee_id}", status_code=204)
-def delete_employee(
-    employee_id: int,
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
-):
-    employee = db.query(models.Employee).filter(models.Employee.id == employee_id).first()
-    if not employee:
-        raise HTTPException(status_code=404, detail="Funcionário não encontrado.")
-    db.delete(employee)
-    db.commit()
+@router.get("/company/{company_id}", response_model=List[EmployeeResponse])
+def list_employees_by_company(company_id: UUID, db: Session = Depends(get_db)):
+    return db.query(Employee).filter(Employee.company_id == company_id).all()

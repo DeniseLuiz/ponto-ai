@@ -1,55 +1,56 @@
+import uuid
 from datetime import datetime, timedelta
-from typing import Optional
 from jose import jwt, JWTError
-from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from sqlalchemy.orm import Session
-
+from passlib.context import CryptContext
 from app.config import settings
-from app.database import get_db
-from app import models
+from app.redis import get_user_session
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    return pwd_context.verify(plain_password, hashed_password)
 
-def hash_password(password: str) -> str:
+def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
-
-def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_context.verify(plain, hashed)
-
-
-def create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:
+def create_access_token(data: dict) -> tuple[str, str]:
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(
-        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES
-    )
-    to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
+    session_id = str(uuid.uuid4())
+    
+    # Tempo do JWT idêntico ao TTL configurado para o Redis
+    expire = datetime.utcnow() + timedelta(minutes=settings.SESSION_EXPIRE_MINUTES)
+    to_encode.update({"exp": expire, "session_id": session_id})
+    
+    token = jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
+    return token, session_id
 
-
-def get_current_user(
-    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)
-) -> models.User:
+def verify_active_session(token: str = Depends(oauth2_scheme)) -> dict:
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Credenciais inválidas ou expiradas",
+        detail="Sessão inválida ou expirada",
         headers={"WWW-Authenticate": "Bearer"},
     )
+    
     try:
-        payload = jwt.decode(
-            token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM]
-        )
-        user_id: str = payload.get("sub")
-        if user_id is None:
+        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])
+        employee_id: str = payload.get("sub")
+        session_id: str = payload.get("session_id")
+        
+        if not employee_id or not session_id:
             raise credentials_exception
+            
     except JWTError:
         raise credentials_exception
 
-    user = db.query(models.User).filter(models.User.id == int(user_id)).first()
-    if user is None or not user.is_active:
-        raise credentials_exception
-    return user
+    # Validação no Redis
+    current_active_session = get_user_session(employee_id)
+    if not current_active_session or current_active_session != session_id:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Sessão encerrada por um novo login em outro dispositivo"
+        )
+
+    return payload
