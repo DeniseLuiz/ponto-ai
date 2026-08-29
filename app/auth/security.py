@@ -54,3 +54,5 @@ def verify_active_session(token: str = Depends(oauth2_scheme)) -> dict:
         )
 
     return payload
+
+get_current_user = verify_active_session
