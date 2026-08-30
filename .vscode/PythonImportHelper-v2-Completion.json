@@ -121,14 +121,6 @@
         "documentation": {}
     },
     {
-        "label": "fileConfig",
-        "importPath": "logging.config",
-        "description": "logging.config",
-        "isExtraImport": true,
-        "detail": "logging.config",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -147,15 +139,15 @@
         "documentation": {}
     },
     {
-        "label": "Base",
-        "importPath": "app.database",
-        "description": "app.database",
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
         "isExtraImport": true,
-        "detail": "app.database",
+        "detail": "logging.config",
         "documentation": {}
     },
     {
-        "label": "get_db",
+        "label": "Base",
         "importPath": "app.database",
         "description": "app.database",
         "isExtraImport": true,
@@ -267,47 +259,15 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "app",
-        "description": "app",
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.config",
         "documentation": {}
     },
     {
         "label": "models",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "schemas",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "schemas",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -452,6 +412,14 @@
     },
     {
         "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -547,14 +515,6 @@
         "documentation": {}
     },
     {
-        "label": "Session",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
-        "documentation": {}
-    },
-    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -579,11 +539,67 @@
         "documentation": {}
     },
     {
-        "label": "hash_password",
-        "importPath": "app.auth.security",
-        "description": "app.auth.security",
+        "label": "Employee",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app.auth.security",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Company",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Company",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequest",
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "isExtraImport": true,
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TokenResponse",
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "isExtraImport": true,
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeCreate",
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "isExtraImport": true,
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeResponse",
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "isExtraImport": true,
+        "detail": "app.schemas",
         "documentation": {}
     },
     {
@@ -611,7 +627,7 @@
         "documentation": {}
     },
     {
-        "label": "get_current_user",
+        "label": "get_password_hash",
         "importPath": "app.auth.security",
         "description": "app.auth.security",
         "isExtraImport": true,
@@ -627,11 +643,11 @@
         "documentation": {}
     },
     {
-        "label": "get_current_user",
-        "importPath": "app.auth.security",
-        "description": "app.auth.security",
+        "label": "save_user_session",
+        "importPath": "app.redis",
+        "description": "app.redis",
         "isExtraImport": true,
-        "detail": "app.auth.security",
+        "detail": "app.redis",
         "documentation": {}
     },
     {
@@ -651,6 +667,22 @@
         "documentation": {}
     },
     {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -667,67 +699,20 @@
         "documentation": {}
     },
     {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
+        "label": "OAuth2PasswordBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
         "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
+        "detail": "fastapi.security",
         "documentation": {}
     },
     {
         "label": "jwt",
-        "importPath": "jose",
-        "description": "jose",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "jose",
-        "documentation": {}
-    },
-    {
-        "label": "JWTError",
-        "importPath": "jose",
-        "description": "jose",
-        "isExtraImport": true,
-        "detail": "jose",
+        "importPath": "jwt",
+        "description": "jwt",
+        "detail": "jwt",
         "documentation": {}
     },
     {
@@ -739,11 +724,52 @@
         "documentation": {}
     },
     {
-        "label": "OAuth2PasswordBearer",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "fastapi.security",
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -846,15 +872,6 @@
         "documentation": {}
     },
     {
-        "label": "uuid",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "uuid",
-        "description": "uuid",
-        "detail": "uuid",
-        "documentation": {}
-    },
-    {
         "label": "StreamingResponse",
         "importPath": "fastapi.responses",
         "description": "fastapi.responses",
@@ -944,6 +961,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "redis",
         "kind": 6,
         "isExtraImport": true,
@@ -974,6 +999,14 @@
         "description": "fastapi.middleware.cors",
         "isExtraImport": true,
         "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
         "documentation": {}
     },
     {
@@ -1010,6 +1043,14 @@
     },
     {
         "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -1137,7 +1178,7 @@
         "kind": 2,
         "importPath": "alembic.env",
         "description": "alembic.env",
-        "peekOfCode": "def run_migrations_offline():\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)\n    with context.begin_transaction():\n        context.run_migrations()\ndef run_migrations_online():\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,",
+        "peekOfCode": "def run_migrations_offline() -> None:\n    \"\"\"Roda migrações em modo offline (gera scripts SQL sem conexão ativa).\"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(\n        url=url,\n        target_metadata=target_metadata,\n        literal_binds=True,\n        dialect_opts={\"paramstyle\": \"named\"},\n    )\n    with context.begin_transaction():",
         "detail": "alembic.env",
         "documentation": {}
     },
@@ -1146,7 +1187,7 @@
         "kind": 2,
         "importPath": "alembic.env",
         "description": "alembic.env",
-        "peekOfCode": "def run_migrations_online():\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,\n    )\n    with connectable.connect() as connection:\n        context.configure(connection=connection, target_metadata=target_metadata)\n        with context.begin_transaction():\n            context.run_migrations()",
+        "peekOfCode": "def run_migrations_online() -> None:\n    \"\"\"Roda migrações conectando diretamente ao banco de dados.\"\"\"\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section, {}),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,\n    )\n    with connectable.connect() as connection:\n        context.configure(\n            connection=connection,",
         "detail": "alembic.env",
         "documentation": {}
     },
@@ -1155,7 +1196,7 @@
         "kind": 5,
         "importPath": "alembic.env",
         "description": "alembic.env",
-        "peekOfCode": "config = context.config\nconfig.set_main_option(\"sqlalchemy.url\", settings.DATABASE_URL)\nif config.config_file_name is not None:\n    fileConfig(config.config_file_name)\ntarget_metadata = Base.metadata\ndef run_migrations_offline():\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)\n    with context.begin_transaction():\n        context.run_migrations()",
+        "peekOfCode": "config = context.config\nconfig.set_main_option(\"sqlalchemy.url\", settings.DATABASE_URL)\nif config.config_file_name is not None:\n    fileConfig(config.config_file_name)\ntarget_metadata = Base.metadata\ndef run_migrations_offline() -> None:\n    \"\"\"Roda migrações em modo offline (gera scripts SQL sem conexão ativa).\"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(\n        url=url,",
         "detail": "alembic.env",
         "documentation": {}
     },
@@ -1164,17 +1205,8 @@
         "kind": 5,
         "importPath": "alembic.env",
         "description": "alembic.env",
-        "peekOfCode": "target_metadata = Base.metadata\ndef run_migrations_offline():\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)\n    with context.begin_transaction():\n        context.run_migrations()\ndef run_migrations_online():\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",",
+        "peekOfCode": "target_metadata = Base.metadata\ndef run_migrations_offline() -> None:\n    \"\"\"Roda migrações em modo offline (gera scripts SQL sem conexão ativa).\"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")\n    context.configure(\n        url=url,\n        target_metadata=target_metadata,\n        literal_binds=True,\n        dialect_opts={\"paramstyle\": \"named\"},\n    )",
         "detail": "alembic.env",
-        "documentation": {}
-    },
-    {
-        "label": "register",
-        "kind": 2,
-        "importPath": "app.auth.routes",
-        "description": "app.auth.routes",
-        "peekOfCode": "def register(payload: schemas.UserCreate, db: Session = Depends(get_db)):\n    \"\"\"Cria um novo usuário. Se company_id for informado, vincula à empresa existente.\"\"\"\n    existing = db.query(models.User).filter(models.User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"E-mail já cadastrado.\")\n    user = models.User(\n        email=payload.email,\n        hashed_password=hash_password(payload.password),\n        full_name=payload.full_name,\n        company_id=payload.company_id,",
-        "detail": "app.auth.routes",
         "documentation": {}
     },
     {
@@ -1182,16 +1214,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def login(payload: schemas.LoginRequest, db: Session = Depends(get_db)):\n    \"\"\"Autentica usuário e retorna JWT.\"\"\"\n    user = db.query(models.User).filter(models.User.email == payload.email).first()\n    if not user or not verify_password(payload.password, user.hashed_password):\n        raise HTTPException(status_code=401, detail=\"E-mail ou senha inválidos.\")\n    token = create_access_token({\"sub\": str(user.id)})\n    return schemas.Token(access_token=token)\n@router.get(\"/me\", response_model=schemas.UserOut)\ndef me(current_user: models.User = Depends(get_current_user)):\n    return current_user",
-        "detail": "app.auth.routes",
-        "documentation": {}
-    },
-    {
-        "label": "me",
-        "kind": 2,
-        "importPath": "app.auth.routes",
-        "description": "app.auth.routes",
-        "peekOfCode": "def me(current_user: models.User = Depends(get_current_user)):\n    return current_user",
+        "peekOfCode": "def login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o funcionário pelo username/email\n    employee = db.query(Employee).filter(Employee.email == payload.email).first()\n    if not employee or not verify_password(payload.password, employee.password_hash):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\"\n        )\n    # 2. Bloqueia acesso caso o funcionário esteja inativo\n    if not employee.active:",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1200,17 +1223,8 @@
         "kind": 5,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Autenticação\"])\n@router.post(\"/register\", response_model=schemas.UserOut, status_code=201)\ndef register(payload: schemas.UserCreate, db: Session = Depends(get_db)):\n    \"\"\"Cria um novo usuário. Se company_id for informado, vincula à empresa existente.\"\"\"\n    existing = db.query(models.User).filter(models.User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"E-mail já cadastrado.\")\n    user = models.User(\n        email=payload.email,\n        hashed_password=hash_password(payload.password),",
+        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Auth\"])\n@router.post(\"/login\", response_model=TokenResponse)\ndef login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o funcionário pelo username/email\n    employee = db.query(Employee).filter(Employee.email == payload.email).first()\n    if not employee or not verify_password(payload.password, employee.password_hash):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\"\n        )",
         "detail": "app.auth.routes",
-        "documentation": {}
-    },
-    {
-        "label": "hash_password",
-        "kind": 2,
-        "importPath": "app.auth.security",
-        "description": "app.auth.security",
-        "peekOfCode": "def hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )\n    to_encode.update({\"exp\": expire})",
-        "detail": "app.auth.security",
         "documentation": {}
     },
     {
@@ -1218,7 +1232,16 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)\ndef get_current_user(",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\ndef get_current_user(token: str = Depends(oauth2_scheme)) -> dict:",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_password_hash",
+        "kind": 2,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "def get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\ndef get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1227,7 +1250,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)\ndef get_current_user(\n    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)\n) -> models.User:",
+        "peekOfCode": "def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\ndef get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Não foi possível validar as credenciais\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1236,16 +1259,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def get_current_user(\n    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)\n) -> models.User:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Credenciais inválidas ou expiradas\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},\n    )\n    try:\n        payload = jwt.decode(",
-        "detail": "app.auth.security",
-        "documentation": {}
-    },
-    {
-        "label": "pwd_context",
-        "kind": 5,
-        "importPath": "app.auth.security",
-        "description": "app.auth.security",
-        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\noauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/auth/login\")\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES",
+        "peekOfCode": "def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Não foi possível validar as credenciais\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},\n    )\n    try:\n        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])\n        user_id: str = payload.get(\"sub\")\n        if user_id is None:",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1254,7 +1268,25 @@
         "kind": 5,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/auth/login\")\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef verify_password(plain: str, hashed: str) -> bool:\n    return pwd_context.verify(plain, hashed)\ndef create_access_token(data: dict, expires_minutes: Optional[int] = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=expires_minutes or settings.JWT_EXPIRE_MINUTES\n    )",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"api/auth/login\")\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)",
+        "detail": "app.auth.security",
+        "documentation": {}
+    },
+    {
+        "label": "verify_active_session",
+        "kind": 5,
+        "importPath": "app.auth.security",
+        "description": "app.auth.security",
+        "peekOfCode": "verify_active_session = get_current_user",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1308,34 +1340,16 @@
         "kind": 2,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "def create_employee(\n    payload: schemas.EmployeeCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    company = db.query(models.Company).filter(models.Company.id == payload.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada.\")\n    employee = models.Employee(\n        name=payload.name,",
+        "peekOfCode": "def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # Valida unicidade de Email\n    existing_user = db.query(Employee).filter(Employee.email == employee_in.email).first()\n    if existing_user:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    hashed_password = get_password_hash(employee_in.password)",
         "detail": "app.employees.routes",
         "documentation": {}
     },
     {
-        "label": "list_employees",
+        "label": "list_employees_by_company",
         "kind": 2,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "def list_employees(\n    company_id: int = None,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    query = db.query(models.Employee)\n    if company_id:\n        query = query.filter(models.Employee.company_id == company_id)\n    return query.all()\n@router.get(\"/{employee_id}\", response_model=schemas.EmployeeOut)",
-        "detail": "app.employees.routes",
-        "documentation": {}
-    },
-    {
-        "label": "get_employee",
-        "kind": 2,
-        "importPath": "app.employees.routes",
-        "description": "app.employees.routes",
-        "peekOfCode": "def get_employee(\n    employee_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    employee = db.query(models.Employee).filter(models.Employee.id == employee_id).first()\n    if not employee:\n        raise HTTPException(status_code=404, detail=\"Funcionário não encontrado.\")\n    return employee\n@router.delete(\"/{employee_id}\", status_code=204)",
-        "detail": "app.employees.routes",
-        "documentation": {}
-    },
-    {
-        "label": "delete_employee",
-        "kind": 2,
-        "importPath": "app.employees.routes",
-        "description": "app.employees.routes",
-        "peekOfCode": "def delete_employee(\n    employee_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    employee = db.query(models.Employee).filter(models.Employee.id == employee_id).first()\n    if not employee:\n        raise HTTPException(status_code=404, detail=\"Funcionário não encontrado.\")\n    db.delete(employee)\n    db.commit()",
+        "peekOfCode": "def list_employees_by_company(company_id: UUID, db: Session = Depends(get_db)):\n    return db.query(Employee).filter(Employee.company_id == company_id).all()",
         "detail": "app.employees.routes",
         "documentation": {}
     },
@@ -1344,7 +1358,7 @@
         "kind": 5,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Funcionários\"])\n@router.post(\"/\", response_model=schemas.EmployeeOut, status_code=201)\ndef create_employee(\n    payload: schemas.EmployeeCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    company = db.query(models.Company).filter(models.Company.id == payload.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada.\")",
+        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Employees\"])\n@router.post(\"/\", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)\ndef create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # Valida unicidade de Email\n    existing_user = db.query(Employee).filter(Employee.email == employee_in.email).first()\n    if existing_user:",
         "detail": "app.employees.routes",
         "documentation": {}
     },
@@ -1362,7 +1376,7 @@
         "kind": 2,
         "importPath": "app.jobs.processor",
         "description": "app.jobs.processor",
-        "peekOfCode": "def split_pdf_text_from_bytes(pdf_bytes: bytes, chunk_size: int) -> list[str]:\n    \"\"\"\n    Divide o PDF (em memória) em blocos de texto de N páginas (padrão 50).\n    Retorna lista de strings, cada uma correspondente a um bloco.\n    \"\"\"\n    doc = fitz.open(stream=pdf_bytes, filetype=\"pdf\")\n    total_pages = len(doc)\n    if total_pages > settings.MAX_PDF_PAGES:\n        doc.close()\n        raise ValueError(",
+        "peekOfCode": "def split_pdf_text_from_bytes(pdf_bytes: bytes, chunk_size: int) -> list[str]:\n    \"\"\"\n    Divide o PDF (em memória) em blocos de texto de N páginas.\n    Retorna lista de strings, cada uma correspondente a um bloco.\n    \"\"\"\n    doc = fitz.open(stream=pdf_bytes, filetype=\"pdf\")\n    total_pages = len(doc)\n    if total_pages > settings.MAX_PDF_PAGES:\n        doc.close()\n        raise ValueError(",
         "detail": "app.jobs.processor",
         "documentation": {}
     },
@@ -1425,7 +1439,7 @@
         "kind": 2,
         "importPath": "app.jobs.tasks",
         "description": "app.jobs.tasks",
-        "peekOfCode": "def run_extraction_job(self, job_id: int):\n    db = SessionLocal()\n    job = db.query(models.Job).get(job_id)\n    if not job:\n        db.close()\n        return\n    job.status = \"processing\"\n    db.commit()\n    try:\n        client = genai.GenerativeModel(settings.GEMINI_MODEL)",
+        "peekOfCode": "def run_extraction_job(self, job_id: int):\n    db = SessionLocal()\n    try:\n        job = db.query(models.Job).get(job_id)\n        if not job:\n            return\n        job.status = \"processing\"\n        db.commit()\n        client = genai.GenerativeModel(settings.GEMINI_MODEL)\n        result_key = process_job(job_id, job.pdf_key, job.role_mode, client)",
         "detail": "app.jobs.tasks",
         "documentation": {}
     },
@@ -1596,7 +1610,7 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class Settings(BaseSettings):\n    DATABASE_URL: str\n    CELERY_BROKER_URL: str\n    CELERY_RESULT_BACKEND: str\n    JWT_SECRET: str\n    JWT_ALGORITHM: str = \"HS256\"\n    JWT_EXPIRE_MINUTES: int = 60\n    GEMINI_API_KEY: str\n    GEMINI_MODEL: str = \"gemini-2.5-pro\"\n    FILE_TTL_SECONDS: int = 86400  # 24h — expiração automática do PDF e do resultado no Redis",
+        "peekOfCode": "class Settings(BaseSettings):\n    # Banco de Dados\n    DATABASE_URL: str\n    # Redis - Mapeamento Completo para o Render\n    REDIS_HOST: str = \"localhost\"\n    REDIS_PORT: int = 6379\n    REDIS_DB: int = 0\n    REDIS_PASSWORD: str | None = None\n    # Celery\n    CELERY_BROKER_URL: str",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1623,7 +1637,7 @@
         "kind": 5,
         "importPath": "app.database",
         "description": "app.database",
-        "peekOfCode": "engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "peekOfCode": "engine = create_engine(\n    settings.DATABASE_URL, \n    pool_pre_ping=True,\n    pool_size=10,\n    max_overflow=20\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()",
         "detail": "app.database",
         "documentation": {}
     },
@@ -1650,7 +1664,25 @@
         "kind": 2,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "def health_check():\n    return {\"status\": \"ok\"}",
+        "peekOfCode": "def health_check():\n    return {\"status\": \"ok\"}\n# Permissão CORS para consumir via Front-end sem bloqueio no navegador\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nFRONTEND_DIR = os.path.join(BASE_DIR, \"frontend\")\napp = FastAPI(\n    title=\"Ponto AI API\",\n    description=\"API de extração e análise inteligente de espelhos de ponto via IA\",\n    version=\"1.0.0\"\n)\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"ok\"}",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "FRONTEND_DIR",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "FRONTEND_DIR = os.path.join(BASE_DIR, \"frontend\")\napp = FastAPI(\n    title=\"Ponto AI API\",\n    description=\"API de extração e análise inteligente de espelhos de ponto via IA\",\n    version=\"1.0.0\"\n)\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"ok\"}\n# Permissão CORS para consumir via Front-end sem bloqueio no navegador",
         "detail": "app.main",
         "documentation": {}
     },
@@ -1659,7 +1691,7 @@
         "kind": 5,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "app = FastAPI(\n    title=\"PontoAI — Extração Pericial de Ponto e Financeiro\",\n    description=(\n        \"API para extração automatizada de dados de cartões de ponto e \"\n        \"fichas financeiras a partir de PDFs, utilizando Gemini 2.5 Pro.\"\n    ),\n    version=\"1.0.0\",\n)\napp.add_middleware(\n    CORSMiddleware,",
+        "peekOfCode": "app = FastAPI(\n    title=\"Ponto AI API\",\n    description=\"API de extração e análise inteligente de espelhos de ponto via IA\",\n    version=\"1.0.0\"\n)\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"ok\"}\n# Permissão CORS para consumir via Front-end sem bloqueio no navegador\napp.add_middleware(",
         "detail": "app.main",
         "documentation": {}
     },
@@ -1668,7 +1700,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True)\n    created_at = Column(DateTime, server_default=func.now())\n    users = relationship(\"User\", back_populates=\"company\")\n    employees = relationship(\"Employee\", back_populates=\"company\")\nclass User(Base):\n    __tablename__ = \"users\"",
+        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True, index=True)\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos\n    users = relationship(\"User\", back_populates=\"company\", cascade=\"all, delete-orphan\")\n    employees = relationship(\"Employee\", back_populates=\"company\", cascade=\"all, delete-orphan\")\nclass User(Base):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1677,7 +1709,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True)\n    email = Column(String, unique=True, nullable=False)\n    hashed_password = Column(String, nullable=False)\n    full_name = Column(String, nullable=True)\n    is_active = Column(Boolean, default=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=True)\n    created_at = Column(DateTime, server_default=func.now())\n    company = relationship(\"Company\", back_populates=\"users\")",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True, index=True)\n    email = Column(String, unique=True, nullable=False, index=True)\n    hashed_password = Column(String, nullable=False)\n    full_name = Column(String, nullable=True)\n    is_active = Column(Boolean, default=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=True)\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1686,7 +1718,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Employee(Base):\n    __tablename__ = \"employees\"\n    id = Column(Integer, primary_key=True)\n    name = Column(String, nullable=False)\n    cpf = Column(String, nullable=True)\n    role_title = Column(String, nullable=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=False)\n    created_at = Column(DateTime, server_default=func.now())\n    company = relationship(\"Company\", back_populates=\"employees\")\n    jobs = relationship(\"Job\", back_populates=\"employee\")",
+        "peekOfCode": "class Employee(Base):\n    __tablename__ = \"employees\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cpf = Column(String, nullable=True, index=True)\n    role_title = Column(String, nullable=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=False)\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos\n    company = relationship(\"Company\", back_populates=\"employees\")",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1695,26 +1727,35 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Job(Base):\n    __tablename__ = \"jobs\"\n    id = Column(Integer, primary_key=True)\n    employee_id = Column(Integer, ForeignKey(\"employees.id\"), nullable=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    role_mode = Column(Integer, nullable=False)  # 1, 2 ou 3\n    original_filename = Column(String, nullable=True)\n    pdf_key = Column(String, nullable=False)       # chave do PDF original no Redis\n    result_key = Column(String, nullable=True)      # chave do Excel gerado no Redis\n    status = Column(String, nullable=False, default=\"pending\")",
+        "peekOfCode": "class Job(Base):\n    __tablename__ = \"jobs\"\n    id = Column(Integer, primary_key=True, index=True)\n    employee_id = Column(Integer, ForeignKey(\"employees.id\"), nullable=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    role_mode = Column(Integer, nullable=False)  # Configuração de modo (1, 2 ou 3)\n    original_filename = Column(String, nullable=True)\n    pdf_path = Column(String, nullable=False)     # Mapeado também como pdf_key via código\n    result_path = Column(String, nullable=True)   # Mapeado também como result_key via código\n    status = Column(String, nullable=False, default=\"pending\")  # pending, processing, done, failed",
         "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "UserCreate",
-        "kind": 6,
-        "importPath": "app.schemas",
-        "description": "app.schemas",
-        "peekOfCode": "class UserCreate(BaseModel):\n    email: EmailStr\n    password: str\n    full_name: Optional[str] = None\n    company_id: Optional[int] = None\nclass UserOut(BaseModel):\n    id: int\n    email: EmailStr\n    full_name: Optional[str]\n    company_id: Optional[int]",
-        "detail": "app.schemas",
+        "label": "save_user_session",
+        "kind": 2,
+        "importPath": "app.redis",
+        "description": "app.redis",
+        "peekOfCode": "def save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    # Converte os minutos do Environment Group em segundos para o Redis\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
+        "detail": "app.redis",
         "documentation": {}
     },
     {
-        "label": "UserOut",
-        "kind": 6,
-        "importPath": "app.schemas",
-        "description": "app.schemas",
-        "peekOfCode": "class UserOut(BaseModel):\n    id: int\n    email: EmailStr\n    full_name: Optional[str]\n    company_id: Optional[int]\n    class Config:\n        from_attributes = True\nclass Token(BaseModel):\n    access_token: str\n    token_type: str = \"bearer\"",
-        "detail": "app.schemas",
+        "label": "get_user_session",
+        "kind": 2,
+        "importPath": "app.redis",
+        "description": "app.redis",
+        "peekOfCode": "def get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
+        "detail": "app.redis",
+        "documentation": {}
+    },
+    {
+        "label": "redis_client",
+        "kind": 5,
+        "importPath": "app.redis",
+        "description": "app.redis",
+        "peekOfCode": "redis_client = redis.Redis(\n    host=settings.REDIS_HOST,\n    port=settings.REDIS_PORT,\n    db=settings.REDIS_DB,\n    password=settings.REDIS_PASSWORD,\n    decode_responses=True\n)\ndef save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"",
+        "detail": "app.redis",
         "documentation": {}
     },
     {
@@ -1722,7 +1763,16 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str = \"bearer\"\nclass LoginRequest(BaseModel):\n    email: EmailStr\n    password: str\n# ---------- COMPANY ----------\nclass CompanyCreate(BaseModel):\n    name: str\n    cnpj: Optional[str] = None",
+        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str = \"bearer\"\nTokenResponse = Token  # Suporta rotas antigas\nclass TokenData(BaseModel):\n    user_id: int | None = None\n    email: str | None = None\nclass LoginRequest(BaseModel):\n    email: str | EmailStr\n    username: str | None = None  # Suporta payloads antigos com username",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TokenData",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class TokenData(BaseModel):\n    user_id: int | None = None\n    email: str | None = None\nclass LoginRequest(BaseModel):\n    email: str | EmailStr\n    username: str | None = None  # Suporta payloads antigos com username\n    password: str\n# ==========================================\n# 2. USUÁRIO DO SISTEMA (USER)\n# ==========================================",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1731,7 +1781,43 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class LoginRequest(BaseModel):\n    email: EmailStr\n    password: str\n# ---------- COMPANY ----------\nclass CompanyCreate(BaseModel):\n    name: str\n    cnpj: Optional[str] = None\nclass CompanyOut(BaseModel):\n    id: int\n    name: str",
+        "peekOfCode": "class LoginRequest(BaseModel):\n    email: str | EmailStr\n    username: str | None = None  # Suporta payloads antigos com username\n    password: str\n# ==========================================\n# 2. USUÁRIO DO SISTEMA (USER)\n# ==========================================\nclass UserBase(BaseModel):\n    email: str\n    full_name: str | None = None",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserBase",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class UserBase(BaseModel):\n    email: str\n    full_name: str | None = None\n    is_active: bool = True\nclass UserCreate(UserBase):\n    password: str\n    company_id: int | None = None\nclass UserOut(UserBase):\n    id: int\n    company_id: int | None = None",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class UserCreate(UserBase):\n    password: str\n    company_id: int | None = None\nclass UserOut(UserBase):\n    id: int\n    company_id: int | None = None\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nUserResponse = UserOut  # Suporta rotas antigas\n# ==========================================",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserOut",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class UserOut(UserBase):\n    id: int\n    company_id: int | None = None\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nUserResponse = UserOut  # Suporta rotas antigas\n# ==========================================\n# 3. EMPRESA (COMPANY)\n# ==========================================\nclass CompanyBase(BaseModel):",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyBase",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class CompanyBase(BaseModel):\n    name: str\n    cnpj: str | None = None\n    active: bool = True\nclass CompanyCreate(CompanyBase):\n    pass\nclass CompanyOut(CompanyBase):\n    id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1740,7 +1826,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class CompanyCreate(BaseModel):\n    name: str\n    cnpj: Optional[str] = None\nclass CompanyOut(BaseModel):\n    id: int\n    name: str\n    cnpj: Optional[str]\n    class Config:\n        from_attributes = True\n# ---------- EMPLOYEE ----------",
+        "peekOfCode": "class CompanyCreate(CompanyBase):\n    pass\nclass CompanyOut(CompanyBase):\n    id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nCompanyResponse = CompanyOut  # Suporta rotas antigas\n# ==========================================\n# 4. FUNCIONÁRIO (EMPLOYEE)\n# ==========================================",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1749,7 +1835,16 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class CompanyOut(BaseModel):\n    id: int\n    name: str\n    cnpj: Optional[str]\n    class Config:\n        from_attributes = True\n# ---------- EMPLOYEE ----------\nclass EmployeeCreate(BaseModel):\n    name: str\n    cpf: Optional[str] = None",
+        "peekOfCode": "class CompanyOut(CompanyBase):\n    id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nCompanyResponse = CompanyOut  # Suporta rotas antigas\n# ==========================================\n# 4. FUNCIONÁRIO (EMPLOYEE)\n# ==========================================\nclass EmployeeBase(BaseModel):\n    name: str",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeBase",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\n    username: str | None = None\n    active: bool = True\nclass EmployeeCreate(EmployeeBase):\n    password: str | None = None\n    company_id: int\nclass EmployeeOut(EmployeeBase):",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1758,7 +1853,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class EmployeeCreate(BaseModel):\n    name: str\n    cpf: Optional[str] = None\n    role_title: Optional[str] = None\n    company_id: int\nclass EmployeeOut(BaseModel):\n    id: int\n    name: str\n    cpf: Optional[str]\n    role_title: Optional[str]",
+        "peekOfCode": "class EmployeeCreate(EmployeeBase):\n    password: str | None = None\n    company_id: int\nclass EmployeeOut(EmployeeBase):\n    id: int\n    company_id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nEmployeeResponse = EmployeeOut  # Suporta rotas antigas\n# ==========================================",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1767,7 +1862,25 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class EmployeeOut(BaseModel):\n    id: int\n    name: str\n    cpf: Optional[str]\n    role_title: Optional[str]\n    company_id: int\n    class Config:\n        from_attributes = True\n# ---------- JOB ----------\nclass JobOut(BaseModel):",
+        "peekOfCode": "class EmployeeOut(EmployeeBase):\n    id: int\n    company_id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nEmployeeResponse = EmployeeOut  # Suporta rotas antigas\n# ==========================================\n# 5. TAREFAS DE EXTRAÇÃO DE PONTO (JOB)\n# ==========================================\nclass JobBase(BaseModel):",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "JobBase",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class JobBase(BaseModel):\n    role_mode: int\n    employee_id: int | None = None\nclass JobCreate(JobBase):\n    pass\nclass JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "JobCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class JobCreate(JobBase):\n    pass\nclass JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int\n    original_filename: str | None = None\n    pdf_path: str | None = None\n    result_path: str | None = None",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1776,7 +1889,52 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class JobOut(BaseModel):\n    id: int\n    status: str\n    role_mode: int\n    original_filename: Optional[str]\n    result_path: Optional[str]\n    error_message: Optional[str]\n    created_at: datetime\n    finished_at: Optional[datetime]\n    class Config:",
+        "peekOfCode": "class JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int\n    original_filename: str | None = None\n    pdf_path: str | None = None\n    result_path: str | None = None\n    status: str\n    error_message: str | None = None",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TokenResponse",
+        "kind": 5,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "TokenResponse = Token  # Suporta rotas antigas\nclass TokenData(BaseModel):\n    user_id: int | None = None\n    email: str | None = None\nclass LoginRequest(BaseModel):\n    email: str | EmailStr\n    username: str | None = None  # Suporta payloads antigos com username\n    password: str\n# ==========================================\n# 2. USUÁRIO DO SISTEMA (USER)",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserResponse",
+        "kind": 5,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "UserResponse = UserOut  # Suporta rotas antigas\n# ==========================================\n# 3. EMPRESA (COMPANY)\n# ==========================================\nclass CompanyBase(BaseModel):\n    name: str\n    cnpj: str | None = None\n    active: bool = True\nclass CompanyCreate(CompanyBase):\n    pass",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyResponse",
+        "kind": 5,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "CompanyResponse = CompanyOut  # Suporta rotas antigas\n# ==========================================\n# 4. FUNCIONÁRIO (EMPLOYEE)\n# ==========================================\nclass EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\n    username: str | None = None\n    active: bool = True",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeResponse",
+        "kind": 5,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "EmployeeResponse = EmployeeOut  # Suporta rotas antigas\n# ==========================================\n# 5. TAREFAS DE EXTRAÇÃO DE PONTO (JOB)\n# ==========================================\nclass JobBase(BaseModel):\n    role_mode: int\n    employee_id: int | None = None\nclass JobCreate(JobBase):\n    pass\nclass JobOut(JobBase):",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "JobResponse",
+        "kind": 5,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "JobResponse = JobOut  # Suporta rotas antigas",
         "detail": "app.schemas",
         "documentation": {}
     }
