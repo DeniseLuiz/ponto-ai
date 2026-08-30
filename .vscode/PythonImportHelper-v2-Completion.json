@@ -1523,7 +1523,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
+        "peekOfCode": "def require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    print(user)\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1550,7 +1550,7 @@
         "kind": 5,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "verify_active_session = get_current_user\ndef require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
+        "peekOfCode": "verify_active_session = get_current_user\ndef require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    print(user)\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
         "detail": "app.auth.security",
         "documentation": {}
     },

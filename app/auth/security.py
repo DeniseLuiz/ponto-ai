@@ -55,7 +55,10 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
     if active_session != session_id:
         raise credentials_exception
 
-    return payload
+    return {
+        "id": user_id,
+        "session_id": session_id,  # adicione outras informações do payload se precisar (ex: email, role)
+    }
 
 
 # Alias para manter compatibilidade caso algum arquivo chame verify_active_session
@@ -66,6 +69,7 @@ def require_admin(current_user: dict = Depends(get_current_user), db: Session = 
     """Dependency para rotas restritas a administradores.
     Reaproveita get_current_user (token + sessão já validados) e só confere o role."""
     user = db.query(User).filter(User.id == int(current_user["sub"])).first()
+    print(user)
     if not user or user.role != "admin":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Acesso restrito a administradores")
     return user
