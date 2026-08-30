@@ -18,6 +18,9 @@ app = FastAPI(
     description="API de extração e análise inteligente de espelhos de ponto via IA",
     version="1.0.0"
 )
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 
 # Permissão CORS para consumir via Front-end sem bloqueio no navegador
 app.add_middleware(
