@@ -11,144 +11,227 @@
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="logo">
+    <div class="logo" onclick="showSection('landing-section')" style="cursor: pointer;">
       <div class="logo-icon">⏱</div>
       pontoAi
     </div>
     <nav>
-      <a href="#login-section" id="nav-login" class="active">Login</a>
-      <a href="#upload-section" id="nav-upload" class="hidden">Enviar Documento</a>
-      <a href="#jobs-section" id="nav-jobs" class="hidden">Meus Processamentos</a>
+      <a href="#landing-section" id="nav-about" class="active" onclick="showSection('landing-section')">Sobre Nós</a>
+      <a href="#features" id="nav-features" onclick="scrollToFeatures()">Recursos</a>
+      <a href="#login-section" id="nav-login-btn" class="btn-nav-accent" onclick="openLogin()">Entrar no Sistema</a>
+      <a href="#upload-section" id="nav-upload" class="hidden" onclick="showSection('upload-section')">Enviar Documento</a>
+      <a href="#jobs-section" id="nav-jobs" class="hidden" onclick="showSection('jobs-section')">Meus Processamentos</a>
+      <button id="nav-logout" class="btn-nav-outline hidden" onclick="logout()">Sair</button>
     </nav>
   </div>
 </header>
 
-<main class="container">
-  
-  <!-- TÍTULO DA PÁGINA -->
-  <div class="page-title">
-    <span class="badge-top">🤖 INTELIGÊNCIA ARTIFICIAL</span>
-    <h1>Extração automatizada via IA</h1>
-    <p>Processee cartões de ponto e documentos financeiro em segundos.</p>
+<main>
+
+  <!-- LANDING PAGE (TELA INICIAL / SOBRE A EMPRESA) -->
+  <div id="landing-section">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <h6>melhoria adicionada</h6>
+        <span class="badge-top">🤖 INTELIGÊNCIA ARTIFICIAL PARA PROCESSAMENTO DE DADOS</span>
+        <h1>Transforme documentos físicos em planilhas prontas em segundos</h1>
+        <p class="hero-subtitle">O pontoAi automatiza a leitura e estruturação de cartões de ponto e documentos financeiros utilizando algoritmos avançados de Visão Computacional e IA.</p>
+        <div class="hero-buttons">
+          <h6>melhoria adicionada</h6>
+          <button class="btn-hero-primary" onclick="openLogin()">Entrar no Sistema 🚀</button>
+          <button class="btn-hero-secondary" onclick="scrollToFeatures()">Conhecer Funcionalidades</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURSOS E DIFERENCIAIS -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h6>melhoria adicionada</h6>
+          <h2>Por que escolher o pontoAi?</h2>
+          <p>Elimine horas de digitação manual e reduza erros operacionais no seu RH e Financeiro.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⏱</div>
+            <h3>Extração de Ponto Automatizada</h3>
+            <p>Reconhecimento automático de horários de entrada, saída e intervalos em folhas de ponto digitalizadas.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Análise Financeira Inteligente</h3>
+            <p>Converte comprovantes, notas e relatórios em arquivos Excel (.xlsx) devidamente formatados e estruturados.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Segurança e Precisão</h3>
+            <p>Processamento seguro em nuvem com alta taxa de precisão e rastreabilidade total de cada processamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE A EMPRESA -->
+    <section class="about-section">
+      <div class="container card-about">
+        <h6>melhoria adicionada</h6>
+        <h2>Sobre o pontoAi</h2>
+        <p>Desenvolvido para otimizar rotinas corporativas complexas, o <strong>pontoAi</strong> une tecnologia de ponta e simplicidade. Nossa missão é acelerar a transição digital de empresas de todos os portes, entregando resultados estruturados com agilidade e total confiabilidade.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">99.8%</span>
+            <span class="stat-label">Precisão na leitura</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">&lt; 10s</span>
+            <span class="stat-label">Tempo médio por página</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Exportação direta para Excel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FOOTER LANDING -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Pronto para otimizar seus processos?</h2>
+        <p>Acesse agora a plataforma do pontoAi com suas credenciais.</p>
+        <h6>melhoria adicionada</h6>
+        <button class="btn-hero-primary" onclick="openLogin()">Acessar Painel do Usuário</button>
+      </div>
+    </section>
   </div>
 
-  <!-- SESSÃO DE LOGIN -->
-  <section id="login-section" class="card">
-    <div class="form-header">
-      <h2>Autenticação</h2>
-      <p>Digite suas credenciais para acessar o painel do pontoAi.</p>
-    </div>
+  <!-- CONTAINER DE APLICAÇÃO INTERNA E LOGIN -->
+  <div class="container">
 
-    <h6>melhoria adicionada</h6>
-    <div class="alert alert-error" id="login-alert-error">
-      <span>⚠️</span> <span id="login-error"></span>
-    </div>
-
-    <div class="field">
-      <label for="email">E-mail</label>
-      <div class="input-wrapper">
-        <span class="icon-left">✉️</span>
-        <input type="email" id="email" placeholder="seuemail@empresa.com" autocomplete="username">
+    <!-- SESSÃO DE LOGIN -->
+    <section id="login-section" class="card hidden">
+      <div class="form-header">
+        <h2>Autenticação no pontoAi</h2>
+        <p>Digite suas credenciais para acessar o painel de processamento.</p>
       </div>
-    </div>
 
-    <div class="field">
-      <label for="password">Senha</label>
-      <div class="input-wrapper">
-        <span class="icon-left">🔒</span>
-        <input type="password" id="password" placeholder="Digite sua senha" autocomplete="current-password">
+      <h6>melhoria adicionada</h6>
+      <div class="alert alert-error" id="login-alert-error">
+        <span>⚠️</span> <span id="login-error"></span>
       </div>
-    </div>
 
-    <h6>melhoria adicionada</h6>
-    <button class="btn-submit" onclick="login()">
-      <span class="spinner" id="login-spinner"></span>
-      <span>Entrar</span>
-    </button>
-  </section>
-
-  <!-- SESSÃO DE UPLOAD (INICIALMENTE OCULTA) -->
-  <section id="upload-section" class="card hidden">
-    <div class="card-header">
-      <h2>Enviar Documento (PDF)</h2>
-    </div>
-
-    <h6>melhoria adicionada</h6>
-    <div class="role-selection-wrapper">
-      <label class="field-label">Selecione o Modo (Role):</label>
-      <div class="role-buttons">
-        <button class="role-btn" data-role="1" onclick="selectRole(1)">
-          <span class="role-icon">📊</span>
-          <span class="role-title">Modo 1 — Extração Financeira</span>
-        </button>
-        <button class="role-btn" data-role="2" onclick="selectRole(2)">
-          <span class="role-icon">⏱</span>
-          <span class="role-title">Modo 2 — Extração de Cartão de Ponto</span>
-        </button>
-        <button class="role-btn" data-role="3" onclick="selectRole(3)">
-          <span class="role-icon">📄</span>
-          <span class="role-title">Modo 3 — Extração Genérica</span>
-        </button>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <div class="input-wrapper">
+          <span class="icon-left">✉️</span>
+          <input type="email" id="email" placeholder="seuemail@empresa.com" autocomplete="username">
+        </div>
       </div>
-    </div>
 
-    <h6>melhoria adicionada</h6>
-    <div class="dropzone" id="dropzone">
-      <input type="file" id="pdf-file" accept="application/pdf">
-      <div class="dropzone-icon">📁</div>
-      <h3>Arraste seu arquivo PDF aqui</h3>
-      <p>ou clique para selecionar um arquivo PDF do seu computador</p>
-    </div>
-
-    <h6>melhoria adicionada</h6>
-    <div class="file-preview" id="filePreview">
-      <div class="file-icon">📄</div>
-      <div class="file-info">
-        <div class="file-name" id="fileName">arquivo.pdf</div>
-        <div class="file-size" id="fileSize">0 KB</div>
+      <div class="field">
+        <label for="password">Senha</label>
+        <div class="input-wrapper">
+          <span class="icon-left">🔒</span>
+          <input type="password" id="password" placeholder="Digite sua senha" autocomplete="current-password">
+        </div>
       </div>
-      <button class="file-remove" id="fileRemove" title="Remover arquivo">✕</button>
-    </div>
 
-    <h6>melhoria adicionada</h6>
-    <div class="alert alert-info" id="upload-alert-info">
-      <span>ℹ️</span> <span id="upload-status"></span>
-    </div>
-
-    <div class="card-actions">
-      <button class="btn-submit" onclick="uploadPdf()">
-        <span class="spinner" id="upload-spinner"></span>
-        <span>Enviar PDF</span>
+      <h6>melhoria adicionada</h6>
+      <button class="btn-submit" onclick="login()">
+        <span class="spinner" id="login-spinner"></span>
+        <span>Entrar</span>
       </button>
-    </div>
-  </section>
+      
+      <div class="login-footer">
+        <button class="btn-text" onclick="showSection('landing-section')">← Voltar para a página inicial</button>
+      </div>
+    </section>
 
-  <!-- SESSÃO DE JOBS (INICIALMENTE OCULTA) -->
-  <section id="jobs-section" class="card hidden">
-    <div class="card-header-flex">
-      <h2>Meus Processamentos</h2>
-      <button class="btn-refresh" onclick="loadJobs()">🔄 Atualizar Lista</button>
-    </div>
+    <!-- SESSÃO DE UPLOAD (INICIALMENTE OCULTA) -->
+    <section id="upload-section" class="card hidden">
+      <div class="card-header">
+        <h2>Enviar Documento (PDF)</h2>
+      </div>
 
-    <h6>melhoria adicionada</h6>
-    <div class="table-container">
-      <table id="jobs-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Modo</th>
-            <th>Arquivo</th>
-            <th>Status</th>
-            <th>Ação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Preenchido via app.js -->
-        </tbody>
-      </table>
-    </div>
-  </section>
+      <h6>melhoria adicionada</h6>
+      <div class="role-selection-wrapper">
+        <label class="field-label">Selecione o Modo (Role):</label>
+        <div class="role-buttons">
+          <button class="role-btn" data-role="1" onclick="selectRole(1)">
+            <span class="role-icon">📊</span>
+            <span class="role-title">Modo 1 — Financeiro</span>
+          </button>
+          <button class="role-btn" data-role="2" onclick="selectRole(2)">
+            <span class="role-icon">⏱</span>
+            <span class="role-title">Modo 2 — Ponto</span>
+          </button>
+          <button class="role-btn" data-role="3" onclick="selectRole(3)">
+            <span class="role-icon">📄</span>
+            <span class="role-title">Modo 3 — Genérico</span>
+          </button>
+        </div>
+      </div>
 
+      <h6>melhoria adicionada</h6>
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="pdf-file" accept="application/pdf">
+        <div class="dropzone-icon">📁</div>
+        <h3>Arraste seu arquivo PDF aqui</h3>
+        <p>ou clique para selecionar um arquivo PDF do seu computador</p>
+      </div>
+
+      <h6>melhoria adicionada</h6>
+      <div class="file-preview" id="filePreview">
+        <div class="file-icon">📄</div>
+        <div class="file-info">
+          <div class="file-name" id="fileName">arquivo.pdf</div>
+          <div class="file-size" id="fileSize">0 KB</div>
+        </div>
+        <button class="file-remove" id="fileRemove" title="Remover arquivo">✕</button>
+      </div>
+
+      <h6>melhoria adicionada</h6>
+      <div class="alert alert-info" id="upload-alert-info">
+        <span>ℹ️</span> <span id="upload-status"></span>
+      </div>
+
+      <div class="card-actions">
+        <button class="btn-submit" onclick="uploadPdf()">
+          <span class="spinner" id="upload-spinner"></span>
+          <span>Enviar PDF</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SESSÃO DE JOBS (INICIALMENTE OCULTA) -->
+    <section id="jobs-section" class="card hidden">
+      <div class="card-header-flex">
+        <h2>Meus Processamentos</h2>
+        <button class="btn-refresh" onclick="loadJobs()">🔄 Atualizar Lista</button>
+      </div>
+
+      <h6>melhoria adicionada</h6>
+      <div class="table-container">
+        <table id="jobs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Modo</th>
+              <th>Arquivo</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Preenchido via app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
 </main>
 
 <!-- FOOTER -->

@@ -12,6 +12,33 @@ const fileName = document.getElementById('fileName');
 const fileSize = document.getElementById('fileSize');
 const fileRemove = document.getElementById('fileRemove');
 
+// Controle de Navegação de Telas
+function showSection(sectionId) {
+  document.getElementById("landing-section").classList.add("hidden");
+  document.getElementById("login-section").classList.add("hidden");
+  document.getElementById("upload-section").classList.add("hidden");
+  document.getElementById("jobs-section").classList.add("hidden");
+
+  document.getElementById(sectionId).classList.remove("hidden");
+
+  // Atualiza estados dos links de navegação
+  document.getElementById("nav-about").classList.toggle("active", sectionId === "landing-section");
+}
+
+function openLogin() {
+  if (token) {
+    showSection("upload-section");
+    document.getElementById("jobs-section").classList.remove("hidden");
+  } else {
+    showSection("login-section");
+  }
+}
+
+function scrollToFeatures() {
+  showSection("landing-section");
+  document.getElementById("features").scrollIntoView({ behavior: "smooth" });
+}
+
 // Autenticação (Login)
 async function login() {
   const email = document.getElementById("email").value;
@@ -43,14 +70,15 @@ async function login() {
     const data = await res.json();
     token = data.access_token;
 
-    // Alternar visibilidade das telas
-    document.getElementById("login-section").classList.add("hidden");
-    document.getElementById("nav-login").classList.add("hidden");
-
-    document.getElementById("upload-section").classList.remove("hidden");
-    document.getElementById("jobs-section").classList.remove("hidden");
+    // Atualiza cabeçalho para usuário logado
+    document.getElementById("nav-login-btn").classList.add("hidden");
     document.getElementById("nav-upload").classList.remove("hidden");
     document.getElementById("nav-jobs").classList.remove("hidden");
+    document.getElementById("nav-logout").classList.remove("hidden");
+
+    // Exibe telas do aplicativo
+    showSection("upload-section");
+    document.getElementById("jobs-section").classList.remove("hidden");
 
     loadJobs();
   } catch (err) {
@@ -59,6 +87,15 @@ async function login() {
   } finally {
     spinner.classList.remove("show");
   }
+}
+
+function logout() {
+  token = null;
+  document.getElementById("nav-login-btn").classList.remove("hidden");
+  document.getElementById("nav-upload").classList.add("hidden");
+  document.getElementById("nav-jobs").classList.add("hidden");
+  document.getElementById("nav-logout").classList.add("hidden");
+  showSection("landing-section");
 }
 
 // Seleção de Roles / Modos

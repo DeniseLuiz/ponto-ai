@@ -16,6 +16,14 @@
         "documentation": {}
     },
     {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
         "label": "context",
         "importPath": "alembic",
         "description": "alembic",
@@ -539,7 +547,7 @@
         "documentation": {}
     },
     {
-        "label": "Employee",
+        "label": "User",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -564,6 +572,14 @@
     },
     {
         "label": "Company",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -580,6 +596,22 @@
     },
     {
         "label": "TokenResponse",
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "isExtraImport": true,
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "isExtraImport": true,
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserOut",
         "importPath": "app.schemas",
         "description": "app.schemas",
         "isExtraImport": true,
@@ -619,7 +651,7 @@
         "documentation": {}
     },
     {
-        "label": "get_current_user",
+        "label": "get_password_hash",
         "importPath": "app.auth.security",
         "description": "app.auth.security",
         "isExtraImport": true,
@@ -627,7 +659,7 @@
         "documentation": {}
     },
     {
-        "label": "get_password_hash",
+        "label": "get_current_user",
         "importPath": "app.auth.security",
         "description": "app.auth.security",
         "isExtraImport": true,
@@ -648,6 +680,31 @@
         "description": "app.redis",
         "isExtraImport": true,
         "detail": "app.redis",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_session",
+        "importPath": "app.redis",
+        "description": "app.redis",
+        "isExtraImport": true,
+        "detail": "app.redis",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -753,23 +810,6 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "uuid",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "uuid",
-        "description": "uuid",
-        "detail": "uuid",
-        "documentation": {}
-    },
-    {
-        "label": "UUID",
-        "importPath": "uuid",
-        "description": "uuid",
-        "isExtraImport": true,
-        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -1174,6 +1214,60 @@
         "documentation": {}
     },
     {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0003_employee_user_link",
+        "description": "alembic.versions.0003_employee_user_link",
+        "peekOfCode": "def upgrade():\n    # 1. companies.is_active — antes não existia; entra com default true\n    #    para não quebrar empresas já cadastradas.\n    op.add_column(\n        \"companies\",\n        sa.Column(\"is_active\", sa.Boolean, nullable=False, server_default=\"true\"),\n    )\n    # 2. employees.user_id — vínculo real com users.id.\n    #    Entra nullable=True primeiro porque pode já existir funcionário\n    #    sem usuário correspondente; depois de rodar o backfill manual",
+        "detail": "alembic.versions.0003_employee_user_link",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0003_employee_user_link",
+        "description": "alembic.versions.0003_employee_user_link",
+        "peekOfCode": "def downgrade():\n    op.drop_constraint(\"uq_employees_user_id\", \"employees\", type_=\"unique\")\n    op.drop_column(\"employees\", \"user_id\")\n    op.drop_column(\"companies\", \"is_active\")",
+        "detail": "alembic.versions.0003_employee_user_link",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "alembic.versions.0003_employee_user_link",
+        "description": "alembic.versions.0003_employee_user_link",
+        "peekOfCode": "revision = \"0003\"\ndown_revision = \"0002\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # 1. companies.is_active — antes não existia; entra com default true\n    #    para não quebrar empresas já cadastradas.\n    op.add_column(\n        \"companies\",\n        sa.Column(\"is_active\", sa.Boolean, nullable=False, server_default=\"true\"),",
+        "detail": "alembic.versions.0003_employee_user_link",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "alembic.versions.0003_employee_user_link",
+        "description": "alembic.versions.0003_employee_user_link",
+        "peekOfCode": "down_revision = \"0002\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # 1. companies.is_active — antes não existia; entra com default true\n    #    para não quebrar empresas já cadastradas.\n    op.add_column(\n        \"companies\",\n        sa.Column(\"is_active\", sa.Boolean, nullable=False, server_default=\"true\"),\n    )",
+        "detail": "alembic.versions.0003_employee_user_link",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "alembic.versions.0003_employee_user_link",
+        "description": "alembic.versions.0003_employee_user_link",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # 1. companies.is_active — antes não existia; entra com default true\n    #    para não quebrar empresas já cadastradas.\n    op.add_column(\n        \"companies\",\n        sa.Column(\"is_active\", sa.Boolean, nullable=False, server_default=\"true\"),\n    )\n    # 2. employees.user_id — vínculo real com users.id.",
+        "detail": "alembic.versions.0003_employee_user_link",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "alembic.versions.0003_employee_user_link",
+        "description": "alembic.versions.0003_employee_user_link",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # 1. companies.is_active — antes não existia; entra com default true\n    #    para não quebrar empresas já cadastradas.\n    op.add_column(\n        \"companies\",\n        sa.Column(\"is_active\", sa.Boolean, nullable=False, server_default=\"true\"),\n    )\n    # 2. employees.user_id — vínculo real com users.id.\n    #    Entra nullable=True primeiro porque pode já existir funcionário",
+        "detail": "alembic.versions.0003_employee_user_link",
+        "documentation": {}
+    },
+    {
         "label": "run_migrations_offline",
         "kind": 2,
         "importPath": "alembic.env",
@@ -1210,11 +1304,20 @@
         "documentation": {}
     },
     {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def register(payload: UserCreate, db: Session = Depends(get_db)):\n    existing = db.query(User).filter(User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    new_user = User(\n        email=payload.email,\n        hashed_password=get_password_hash(payload.password),\n        full_name=payload.full_name,\n        is_active=payload.is_active,\n        company_id=payload.company_id,",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
         "label": "login",
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o funcionário pelo username/email\n    employee = db.query(Employee).filter(Employee.email == payload.email).first()\n    if not employee or not verify_password(payload.password, employee.password_hash):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\"\n        )\n    # 2. Bloqueia acesso caso o funcionário esteja inativo\n    if not employee.active:",
+        "peekOfCode": "def login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o usuário pelo email\n    user = db.query(User).filter(User.email == payload.email).first()\n    if not user or not verify_password(payload.password, user.hashed_password):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\",\n        )\n    # 2. Bloqueia acesso caso o usuário esteja inativo\n    if not user.is_active:",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1223,7 +1326,7 @@
         "kind": 5,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Auth\"])\n@router.post(\"/login\", response_model=TokenResponse)\ndef login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o funcionário pelo username/email\n    employee = db.query(Employee).filter(Employee.email == payload.email).first()\n    if not employee or not verify_password(payload.password, employee.password_hash):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\"\n        )",
+        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Auth\"])\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\ndef register(payload: UserCreate, db: Session = Depends(get_db)):\n    existing = db.query(User).filter(User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    new_user = User(\n        email=payload.email,\n        hashed_password=get_password_hash(payload.password),\n        full_name=payload.full_name,",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1232,7 +1335,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\ndef get_current_user(token: str = Depends(oauth2_scheme)) -> dict:",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> tuple[str, str]:\n    \"\"\"Gera o JWT e um session_id novo, embutido no próprio token.\n    Retorna (token, session_id).\"\"\"\n    session_id = str(uuid.uuid4())\n    to_encode = data.copy()\n    to_encode[\"session_id\"] = session_id",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1241,7 +1344,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\ndef get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,",
+        "peekOfCode": "def get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> tuple[str, str]:\n    \"\"\"Gera o JWT e um session_id novo, embutido no próprio token.\n    Retorna (token, session_id).\"\"\"\n    session_id = str(uuid.uuid4())\n    to_encode = data.copy()\n    to_encode[\"session_id\"] = session_id\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.SESSION_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1250,7 +1353,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\ndef get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Não foi possível validar as credenciais\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},",
+        "peekOfCode": "def create_access_token(data: dict, expires_delta: timedelta | None = None) -> tuple[str, str]:\n    \"\"\"Gera o JWT e um session_id novo, embutido no próprio token.\n    Retorna (token, session_id).\"\"\"\n    session_id = str(uuid.uuid4())\n    to_encode = data.copy()\n    to_encode[\"session_id\"] = session_id\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.SESSION_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    token = jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)\n    return token, session_id",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1259,7 +1362,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Não foi possível validar as credenciais\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},\n    )\n    try:\n        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])\n        user_id: str = payload.get(\"sub\")\n        if user_id is None:",
+        "peekOfCode": "def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Não foi possível validar as credenciais\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},\n    )\n    try:\n        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])\n        user_id: str = payload.get(\"sub\")\n        session_id: str = payload.get(\"session_id\")",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1268,7 +1371,7 @@
         "kind": 5,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"api/auth/login\")\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"api/auth/login\")\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> tuple[str, str]:\n    \"\"\"Gera o JWT e um session_id novo, embutido no próprio token.\n    Retorna (token, session_id).\"\"\"\n    session_id = str(uuid.uuid4())",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1277,7 +1380,7 @@
         "kind": 5,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:\n    to_encode = data.copy()\n    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: timedelta | None = None) -> tuple[str, str]:\n    \"\"\"Gera o JWT e um session_id novo, embutido no próprio token.\n    Retorna (token, session_id).\"\"\"\n    session_id = str(uuid.uuid4())\n    to_encode = data.copy()",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1340,7 +1443,7 @@
         "kind": 2,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # Valida unicidade de Email\n    existing_user = db.query(Employee).filter(Employee.email == employee_in.email).first()\n    if existing_user:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    hashed_password = get_password_hash(employee_in.password)",
+        "peekOfCode": "def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # O vínculo é feito com um User já existente, localizado pelo email.\n    # Employee não guarda credenciais próprias (email/senha vivem só em User).\n    user = db.query(User).filter(User.email == employee_in.email).first()\n    if not user:\n        raise HTTPException(",
         "detail": "app.employees.routes",
         "documentation": {}
     },
@@ -1349,7 +1452,7 @@
         "kind": 2,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "def list_employees_by_company(company_id: UUID, db: Session = Depends(get_db)):\n    return db.query(Employee).filter(Employee.company_id == company_id).all()",
+        "peekOfCode": "def list_employees_by_company(company_id: int, db: Session = Depends(get_db)):\n    return db.query(Employee).filter(Employee.company_id == company_id).all()",
         "detail": "app.employees.routes",
         "documentation": {}
     },
@@ -1358,7 +1461,7 @@
         "kind": 5,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Employees\"])\n@router.post(\"/\", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)\ndef create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # Valida unicidade de Email\n    existing_user = db.query(Employee).filter(Employee.email == employee_in.email).first()\n    if existing_user:",
+        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Employees\"])\n@router.post(\"/\", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)\ndef create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # O vínculo é feito com um User já existente, localizado pelo email.\n    # Employee não guarda credenciais próprias (email/senha vivem só em User).\n    user = db.query(User).filter(User.email == employee_in.email).first()",
         "detail": "app.employees.routes",
         "documentation": {}
     },
@@ -1700,7 +1803,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True, index=True)\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos\n    users = relationship(\"User\", back_populates=\"company\", cascade=\"all, delete-orphan\")\n    employees = relationship(\"Employee\", back_populates=\"company\", cascade=\"all, delete-orphan\")\nclass User(Base):",
+        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True, index=True)\n    is_active = Column(Boolean, nullable=False, server_default=\"true\")\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos\n    users = relationship(\"User\", back_populates=\"company\", cascade=\"all, delete-orphan\")\n    employees = relationship(\"Employee\", back_populates=\"company\", cascade=\"all, delete-orphan\")",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1718,7 +1821,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Employee(Base):\n    __tablename__ = \"employees\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cpf = Column(String, nullable=True, index=True)\n    role_title = Column(String, nullable=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=False)\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos\n    company = relationship(\"Company\", back_populates=\"employees\")",
+        "peekOfCode": "class Employee(Base):\n    __tablename__ = \"employees\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cpf = Column(String, nullable=True, index=True)\n    role_title = Column(String, nullable=True)\n    company_id = Column(Integer, ForeignKey(\"companies.id\"), nullable=False)\n    # Vínculo real com o usuário do sistema (login/senha vivem só em User).\n    # O \"match por email\" acontece na rota, no momento da criação — aqui fica\n    # persistida a FK, não o email em si (evita duplicação e dessincronia).",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1844,7 +1947,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\n    username: str | None = None\n    active: bool = True\nclass EmployeeCreate(EmployeeBase):\n    password: str | None = None\n    company_id: int\nclass EmployeeOut(EmployeeBase):",
+        "peekOfCode": "class EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\n    username: str | None = None\n    active: bool = True\nclass EmployeeCreate(EmployeeBase):\n    # Usado só para localizar o User já cadastrado (via /auth/register).\n    # Não é uma coluna em Employee — o vínculo persistido é EmployeeOut.user_id (FK).\n    email: EmailStr",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1853,7 +1956,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class EmployeeCreate(EmployeeBase):\n    password: str | None = None\n    company_id: int\nclass EmployeeOut(EmployeeBase):\n    id: int\n    company_id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nEmployeeResponse = EmployeeOut  # Suporta rotas antigas\n# ==========================================",
+        "peekOfCode": "class EmployeeCreate(EmployeeBase):\n    # Usado só para localizar o User já cadastrado (via /auth/register).\n    # Não é uma coluna em Employee — o vínculo persistido é EmployeeOut.user_id (FK).\n    email: EmailStr\n    company_id: int\nclass EmployeeOut(EmployeeBase):\n    id: int\n    company_id: int\n    user_id: int\n    created_at: datetime | None = None",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1862,7 +1965,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class EmployeeOut(EmployeeBase):\n    id: int\n    company_id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nEmployeeResponse = EmployeeOut  # Suporta rotas antigas\n# ==========================================\n# 5. TAREFAS DE EXTRAÇÃO DE PONTO (JOB)\n# ==========================================\nclass JobBase(BaseModel):",
+        "peekOfCode": "class EmployeeOut(EmployeeBase):\n    id: int\n    company_id: int\n    user_id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)\nEmployeeResponse = EmployeeOut  # Suporta rotas antigas\n# ==========================================\n# 5. TAREFAS DE EXTRAÇÃO DE PONTO (JOB)\n# ==========================================",
         "detail": "app.schemas",
         "documentation": {}
     },

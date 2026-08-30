@@ -79,7 +79,7 @@ header {
 
 nav {
   display: flex;
-  gap: 28px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -94,6 +94,185 @@ nav a:hover, nav a.active {
   color: var(--orange-600);
 }
 
+.btn-nav-accent {
+  background: var(--orange-600);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.2s ease !important;
+}
+
+.btn-nav-accent:hover {
+  background: var(--orange-700);
+}
+
+.btn-nav-outline {
+  background: transparent;
+  border: 1px solid var(--gray-300);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Landing Page Styles */
+.hero-section {
+  background: linear-gradient(180deg, var(--white) 0%, var(--orange-50) 100%);
+  padding: 60px 24px;
+  text-align: center;
+  border-bottom: 1px solid #f0e0d0;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--gray-600);
+  max-width: 650px;
+  margin: 0 auto 28px;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background: var(--orange-600);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+  background: var(--orange-700);
+  transform: translateY(-2px);
+}
+
+.btn-hero-secondary {
+  background: var(--white);
+  color: var(--dark);
+  border: 1px solid var(--gray-300);
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+  border-color: var(--orange-500);
+  color: var(--orange-600);
+}
+
+.features-section {
+  padding: 60px 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--white);
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+.about-section {
+  padding: 20px 24px 60px;
+}
+
+.card-about {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card-about p {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.about-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--orange-600);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+}
+
+.cta-section {
+  background: var(--dark);
+  color: white;
+  padding: 50px 24px;
+  text-align: center;
+}
+
+.cta-section h2 { margin-bottom: 8px; }
+.cta-section p { color: #aaa; margin-bottom: 24px; }
+
 /* Container Principal */
 .container {
   max-width: 800px;
@@ -101,11 +280,6 @@ nav a:hover, nav a.active {
   margin: 0 auto;
   padding: 40px 24px;
   flex: 1;
-}
-
-.page-title {
-  text-align: center;
-  margin-bottom: 32px;
 }
 
 .badge-top {
@@ -116,19 +290,6 @@ nav a:hover, nav a.active {
   font-size: 0.8rem;
   padding: 6px 16px;
   border-radius: 20px;
-  margin-bottom: 16px;
-}
-
-.page-title h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
-}
-
-.page-title p {
-  color: var(--gray-600);
-  font-size: 1rem;
 }
 
 /* Cards */
@@ -206,6 +367,23 @@ nav a:hover, nav a.active {
 .field input:focus {
   border-color: var(--orange-500);
   box-shadow: 0 0 0 3px var(--orange-100);
+}
+
+.login-footer {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-text:hover {
+  color: var(--orange-600);
 }
 
 /* Botões de Role / Modo */
@@ -452,4 +630,5 @@ footer {
   .header-inner { flex-direction: column; gap: 12px; }
   .card { padding: 24px; }
   .role-buttons { grid-template-columns: 1fr; }
+  .hero-section h1 { font-size: 1.8rem; }
 }

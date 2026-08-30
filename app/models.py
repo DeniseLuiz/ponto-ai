@@ -11,6 +11,7 @@ class Company(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     cnpj = Column(String, unique=True, nullable=True, index=True)
+    is_active = Column(Boolean, nullable=False, server_default="true")
     created_at = Column(DateTime, server_default=func.now())
 
     # Relacionamentos
@@ -32,6 +33,7 @@ class User(Base):
     # Relacionamentos
     company = relationship("Company", back_populates="users")
     jobs = relationship("Job", back_populates="user", cascade="all, delete-orphan")
+    employee = relationship("Employee", back_populates="user", uselist=False)
 
 
 class Employee(Base):
@@ -42,10 +44,15 @@ class Employee(Base):
     cpf = Column(String, nullable=True, index=True)
     role_title = Column(String, nullable=True)
     company_id = Column(Integer, ForeignKey("companies.id"), nullable=False)
+    # Vínculo real com o usuário do sistema (login/senha vivem só em User).
+    # O "match por email" acontece na rota, no momento da criação — aqui fica
+    # persistida a FK, não o email em si (evita duplicação e dessincronia).
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, unique=True)
     created_at = Column(DateTime, server_default=func.now())
 
     # Relacionamentos
     company = relationship("Company", back_populates="employees")
+    user = relationship("User", back_populates="employee")
     jobs = relationship("Job", back_populates="employee")
 
 

@@ -85,13 +85,16 @@ class EmployeeBase(BaseModel):
 
 
 class EmployeeCreate(EmployeeBase):
-    password: str | None = None
+    # Usado só para localizar o User já cadastrado (via /auth/register).
+    # Não é uma coluna em Employee — o vínculo persistido é EmployeeOut.user_id (FK).
+    email: EmailStr
     company_id: int
 
 
 class EmployeeOut(EmployeeBase):
     id: int
     company_id: int
+    user_id: int
     created_at: datetime | None = None
 
     model_config = ConfigDict(from_attributes=True)

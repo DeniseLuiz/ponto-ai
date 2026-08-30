@@ -3,9 +3,8 @@ from sqlalchemy.orm import Session
 from typing import List
 from uuid import UUID
 from app.database import get_db
-from app.models import Employee, Company
+from app.models import Employee, Company, User
 from app.schemas import EmployeeCreate, EmployeeResponse
-from app.auth.security import get_password_hash
 
 router = APIRouter(prefix="/employees", tags=["Employees"])
 
@@ -16,19 +15,25 @@ def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
     if not company:
         raise HTTPException(status_code=404, detail="Empresa não encontrada")
 
-    # Valida unicidade de Email
-    existing_user = db.query(Employee).filter(Employee.email == employee_in.email).first()
-    if existing_user:
-        raise HTTPException(status_code=400, detail="Email já em uso")
+    # O vínculo é feito com um User já existente, localizado pelo email.
+    # Employee não guarda credenciais próprias (email/senha vivem só em User).
+    user = db.query(User).filter(User.email == employee_in.email).first()
+    if not user:
+        raise HTTPException(
+            status_code=404,
+            detail="Nenhum usuário encontrado com esse email. Cadastre o usuário primeiro em POST /api/auth/register",
+        )
 
-    hashed_password = get_password_hash(employee_in.password)
+    existing_employee = db.query(Employee).filter(Employee.user_id == user.id).first()
+    if existing_employee:
+        raise HTTPException(status_code=400, detail="Este usuário já está vinculado a um funcionário")
+
     new_employee = Employee(
         name=employee_in.name,
-        email=employee_in.email,
-        password_hash=hashed_password,
-        is_active=employee_in.active,
+        cpf=employee_in.cpf,
+        role_title=employee_in.role_title,
         company_id=employee_in.company_id,
-        created_at=employee_in.created_at
+        user_id=user.id,
     )
     db.add(new_employee)
     db.commit()
@@ -36,5 +41,5 @@ def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
     return new_employee
 
 @router.get("/company/{company_id}", response_model=List[EmployeeResponse])
-def list_employees_by_company(company_id: UUID, db: Session = Depends(get_db)):
+def list_employees_by_company(company_id: int, db: Session = Depends(get_db)):
     return db.query(Employee).filter(Employee.company_id == company_id).all()
