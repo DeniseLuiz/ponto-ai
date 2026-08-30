@@ -16,18 +16,19 @@ def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
     if not company:
         raise HTTPException(status_code=404, detail="Empresa não encontrada")
 
-    # Valida unicidade de username
-    existing_user = db.query(Employee).filter(Employee.username == employee_in.username).first()
+    # Valida unicidade de Email
+    existing_user = db.query(Employee).filter(Employee.email == employee_in.email).first()
     if existing_user:
-        raise HTTPException(status_code=400, detail="Username já em uso")
+        raise HTTPException(status_code=400, detail="Email já em uso")
 
     hashed_password = get_password_hash(employee_in.password)
     new_employee = Employee(
         name=employee_in.name,
-        username=employee_in.username,
+        email=employee_in.email,
         password_hash=hashed_password,
-        active=employee_in.active,
-        company_id=employee_in.company_id
+        is_active=employee_in.active,
+        company_id=employee_in.company_id,
+        created_at=employee_in.created_at
     )
     db.add(new_employee)
     db.commit()
