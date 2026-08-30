@@ -36,3 +36,6 @@ def verify_active_session(token: str = Depends(oauth2_scheme)) -> dict:
         return payload
     except jwt.PyJWTError:
         raise credentials_exception
+    
+# Alias para manter compatibilidade caso algum arquivo chame verify_active_session
+verify_active_session = get_current_user
