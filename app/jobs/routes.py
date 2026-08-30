@@ -12,7 +12,8 @@ from app.roles.registry import list_roles
 from app.jobs.tasks import run_extraction_job
 from app.storage.redis_storage import save_file, get_file
 
-router = APIRouter(prefix="/jobs", tags=["Processamento (Jobs)"])
+# router = APIRouter(prefix="/jobs", tags=["Processamento (Jobs)"])
+router = APIRouter(tags=["Processamento (Jobs)"])
 
 
 @router.get("/roles")

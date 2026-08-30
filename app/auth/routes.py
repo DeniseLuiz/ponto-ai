@@ -6,7 +6,8 @@ from app.schemas import LoginRequest, TokenResponse, UserCreate, UserOut
 from app.auth.security import verify_password, create_access_token, get_password_hash
 from app.redis import save_user_session
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
+# router = APIRouter(prefix="/auth", tags=["Auth"])
+router = APIRouter(tags=["Auth"])
 
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)

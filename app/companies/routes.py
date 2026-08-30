@@ -6,7 +6,8 @@ from app.database import get_db
 from app import models, schemas
 from app.auth.security import get_current_user
 
-router = APIRouter(prefix="/companies", tags=["Empresas"])
+# router = APIRouter(prefix="/companies", tags=["Empresas"])
+router = APIRouter(tags=["Empresas"])
 
 
 @router.post("/", response_model=schemas.CompanyOut, status_code=201)

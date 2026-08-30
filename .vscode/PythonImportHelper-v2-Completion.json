@@ -1326,7 +1326,7 @@
         "kind": 5,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Auth\"])\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\ndef register(payload: UserCreate, db: Session = Depends(get_db)):\n    existing = db.query(User).filter(User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    new_user = User(\n        email=payload.email,\n        hashed_password=get_password_hash(payload.password),\n        full_name=payload.full_name,",
+        "peekOfCode": "router = APIRouter(tags=[\"Auth\"])\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\ndef register(payload: UserCreate, db: Session = Depends(get_db)):\n    existing = db.query(User).filter(User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    new_user = User(\n        email=payload.email,\n        hashed_password=get_password_hash(payload.password),\n        full_name=payload.full_name,",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1434,7 +1434,7 @@
         "kind": 5,
         "importPath": "app.companies.routes",
         "description": "app.companies.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/companies\", tags=[\"Empresas\"])\n@router.post(\"/\", response_model=schemas.CompanyOut, status_code=201)\ndef create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj, is_active=payload.is_active)\n    db.add(company)",
+        "peekOfCode": "router = APIRouter(tags=[\"Empresas\"])\n@router.post(\"/\", response_model=schemas.CompanyOut, status_code=201)\ndef create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj, is_active=payload.is_active)\n    db.add(company)",
         "detail": "app.companies.routes",
         "documentation": {}
     },
@@ -1461,7 +1461,7 @@
         "kind": 5,
         "importPath": "app.employees.routes",
         "description": "app.employees.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Employees\"])\n@router.post(\"/\", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)\ndef create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # O vínculo é feito com um User já existente, localizado pelo email.\n    # Employee não guarda credenciais próprias (email/senha vivem só em User).\n    user = db.query(User).filter(User.email == employee_in.email).first()",
+        "peekOfCode": "router = APIRouter(tags=[\"Employees\"])\n@router.post(\"/\", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)\ndef create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):\n    # Valida se a empresa informada existe\n    company = db.query(Company).filter(Company.id == employee_in.company_id).first()\n    if not company:\n        raise HTTPException(status_code=404, detail=\"Empresa não encontrada\")\n    # O vínculo é feito com um User já existente, localizado pelo email.\n    # Employee não guarda credenciais próprias (email/senha vivem só em User).\n    user = db.query(User).filter(User.email == employee_in.email).first()",
         "detail": "app.employees.routes",
         "documentation": {}
     },
@@ -1533,7 +1533,7 @@
         "kind": 5,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/jobs\", tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_pdf(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: Optional[int] = Form(None),",
+        "peekOfCode": "router = APIRouter(tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_pdf(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: Optional[int] = Form(None),",
         "detail": "app.jobs.routes",
         "documentation": {}
     },

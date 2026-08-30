@@ -6,7 +6,8 @@ from app.database import get_db
 from app.models import Employee, Company, User
 from app.schemas import EmployeeCreate, EmployeeResponse
 
-router = APIRouter(prefix="/employees", tags=["Employees"])
+# router = APIRouter(prefix="/employees", tags=["Employees"])
+router = APIRouter(tags=["Employees"])
 
 @router.post("/", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)
 def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
