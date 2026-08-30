@@ -4,11 +4,8 @@ class Settings(BaseSettings):
     # Banco de Dados
     DATABASE_URL: str
 
-    # Redis - Mapeamento Completo para o Render
-    REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 6379
-    REDIS_DB: int = 0
-    REDIS_PASSWORD: str | None = None
+    # Redis - a conexão de sessão (app/redis.py) reaproveita CELERY_BROKER_URL,
+    # então não há REDIS_HOST/PORT/PASSWORD separados aqui.
     
     # Celery
     CELERY_BROKER_URL: str

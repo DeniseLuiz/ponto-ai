@@ -1713,7 +1713,7 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class Settings(BaseSettings):\n    # Banco de Dados\n    DATABASE_URL: str\n    # Redis - Mapeamento Completo para o Render\n    REDIS_HOST: str = \"localhost\"\n    REDIS_PORT: int = 6379\n    REDIS_DB: int = 0\n    REDIS_PASSWORD: str | None = None\n    # Celery\n    CELERY_BROKER_URL: str",
+        "peekOfCode": "class Settings(BaseSettings):\n    # Banco de Dados\n    DATABASE_URL: str\n    # Redis - a conexão de sessão (app/redis.py) reaproveita CELERY_BROKER_URL,\n    # então não há REDIS_HOST/PORT/PASSWORD separados aqui.\n    # Celery\n    CELERY_BROKER_URL: str\n    CELERY_RESULT_BACKEND: str\n    # Autenticação & Sessão\n    JWT_SECRET: str",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1839,7 +1839,7 @@
         "kind": 2,
         "importPath": "app.redis",
         "description": "app.redis",
-        "peekOfCode": "def save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    # Converte os minutos do Environment Group em segundos para o Redis\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
+        "peekOfCode": "def save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
         "detail": "app.redis",
         "documentation": {}
     },
@@ -1857,7 +1857,7 @@
         "kind": 5,
         "importPath": "app.redis",
         "description": "app.redis",
-        "peekOfCode": "redis_client = redis.Redis(\n    host=settings.REDIS_HOST,\n    port=settings.REDIS_PORT,\n    db=settings.REDIS_DB,\n    password=settings.REDIS_PASSWORD,\n    decode_responses=True\n)\ndef save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"",
+        "peekOfCode": "redis_client = redis.Redis.from_url(settings.CELERY_BROKER_URL, decode_responses=True)\ndef save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
         "detail": "app.redis",
         "documentation": {}
     },
