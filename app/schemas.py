@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 from uuid import UUID
 from datetime import datetime
@@ -10,6 +10,12 @@ class CompanyBase(BaseModel):
 
 class CompanyCreate(CompanyBase):
     pass
+
+class CompanyOut(CompanyBase):
+    id: int
+    created_at: datetime | None = None
+
+    model_config = ConfigDict(from_attributes=True) # Para compatibilidade com Pydantic v2
 
 class CompanyResponse(CompanyBase):
     id: UUID
