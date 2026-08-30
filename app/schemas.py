@@ -10,6 +10,9 @@ class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"
 
+# Alias para rotas que importam 'TokenResponse'
+TokenResponse = Token
+
 
 class TokenData(BaseModel):
     user_id: int | None = None
@@ -91,7 +94,7 @@ class EmployeeOut(EmployeeBase):
 # ==========================================
 
 class JobBase(BaseModel):
-    role_mode: int  # Configuração do modo (1, 2 ou 3)
+    role_mode: int
     employee_id: int | None = None
 
 
