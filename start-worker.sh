@@ -1,3 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
-exec celery -A app.celery_app.celery_app worker --loglevel=info --concurrency=2
+
+# Inicia o worker do Celery
+exec celery -A app.celery_app.celery_app worker --loglevel=info

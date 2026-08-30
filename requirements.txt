@@ -30,11 +30,16 @@ redis==5.0.8
 google-generativeai==0.8.1
 python-dotenv==1.0.1
 
-fastapi
-uvicorn
-sqlalchemy
-psycopg2-binary
-pydantic
-passlib[bcrypt]
-python-jose[cryptography]
-redis
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+psycopg2-binary>=2.9.9
+celery>=5.3.4
+redis>=5.0.0
+pydantic>=2.4.0
+pydantic-settings>=2.0.0
+pyjwt>=2.8.0
+passlib[bcrypt]>=1.7.4
+python-multipart>=0.0.6
+openpyxl>=3.1.2
