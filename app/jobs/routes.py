@@ -15,7 +15,6 @@ from app.storage.redis_storage import save_file, get_file
 # router = APIRouter(prefix="/jobs", tags=["Processamento (Jobs)"])
 router = APIRouter(tags=["Processamento (Jobs)"])
 
-
 @router.get("/roles")
 def get_available_roles():
     """Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente."""
@@ -43,10 +42,10 @@ async def upload_pdf(
     content = await file.read()
     pdf_key = f"pdf:{uuid.uuid4().hex}"
     save_file(pdf_key, content)
-
+    user_id_int = int(current_user["sub"])
     job = models.Job(
         employee_id=employee_id,
-        user_id=current_user["id"],
+        user_id=user_id_int,
         role_mode=role_id,
         original_filename=file.filename,
         pdf_key=pdf_key,
@@ -67,7 +66,8 @@ def list_jobs(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    return db.query(models.Job).filter(models.Job.user_id == current_user["id"]).all()
+    user_id_int = int(current_user["sub"])
+    return db.query(models.Job).filter(models.Job.user_id == user_id_int).all()
 
 
 @router.get("/{job_id}/status", response_model=schemas.JobOut)
@@ -76,8 +76,9 @@ def job_status(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
+    user_id_int = int(current_user["sub"])
     job = db.query(models.Job).filter(
-        models.Job.id == job_id, models.Job.user_id == current_user["id"]
+        models.Job.id == job_id, models.Job.user_id == user_id_int
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")
@@ -90,8 +91,9 @@ def download_result(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
+    user_id_int = int(current_user["sub"])
     job = db.query(models.Job).filter(
-        models.Job.id == job_id, models.Job.user_id == current_user["id"]
+        models.Job.id == job_id, models.Job.user_id == user_id_int
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")
