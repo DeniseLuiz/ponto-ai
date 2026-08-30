@@ -10,8 +10,7 @@ class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"
 
-# Alias para rotas que importam 'TokenResponse'
-TokenResponse = Token
+TokenResponse = Token  # Suporta rotas antigas
 
 
 class TokenData(BaseModel):
@@ -20,7 +19,8 @@ class TokenData(BaseModel):
 
 
 class LoginRequest(BaseModel):
-    email: EmailStr
+    email: str | EmailStr
+    username: str | None = None  # Suporta payloads antigos com username
     password: str
 
 
@@ -29,7 +29,7 @@ class LoginRequest(BaseModel):
 # ==========================================
 
 class UserBase(BaseModel):
-    email: EmailStr
+    email: str
     full_name: str | None = None
     is_active: bool = True
 
@@ -46,6 +46,8 @@ class UserOut(UserBase):
 
     model_config = ConfigDict(from_attributes=True)
 
+UserResponse = UserOut  # Suporta rotas antigas
+
 
 # ==========================================
 # 3. EMPRESA (COMPANY)
@@ -54,6 +56,7 @@ class UserOut(UserBase):
 class CompanyBase(BaseModel):
     name: str
     cnpj: str | None = None
+    active: bool = True
 
 
 class CompanyCreate(CompanyBase):
@@ -66,6 +69,8 @@ class CompanyOut(CompanyBase):
 
     model_config = ConfigDict(from_attributes=True)
 
+CompanyResponse = CompanyOut  # Suporta rotas antigas
+
 
 # ==========================================
 # 4. FUNCIONÁRIO (EMPLOYEE)
@@ -75,9 +80,12 @@ class EmployeeBase(BaseModel):
     name: str
     cpf: str | None = None
     role_title: str | None = None
+    username: str | None = None
+    active: bool = True
 
 
 class EmployeeCreate(EmployeeBase):
+    password: str | None = None
     company_id: int
 
 
@@ -87,6 +95,8 @@ class EmployeeOut(EmployeeBase):
     created_at: datetime | None = None
 
     model_config = ConfigDict(from_attributes=True)
+
+EmployeeResponse = EmployeeOut  # Suporta rotas antigas
 
 
 # ==========================================
@@ -116,3 +126,5 @@ class JobOut(JobBase):
     finished_at: datetime | None = None
 
     model_config = ConfigDict(from_attributes=True)
+
+JobResponse = JobOut  # Suporta rotas antigas
