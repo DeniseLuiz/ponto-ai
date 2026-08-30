@@ -1934,6 +1934,15 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "logger = logging.getLogger(\"pontoai.main\")\n# Resolução do caminho absoluto da pasta frontend na raiz do projeto\nBASE_DIR = Path(__file__).resolve().parent.parent\nFRONTEND_DIR = os.path.join(BASE_DIR, \"frontend\")\napp = FastAPI(\n    title=\"Ponto AI API\",\n    description=\"API de extração e análise inteligente de espelhos de ponto via IA\",\n    version=\"1.0.0\"\n)\n@app.get(\"/health\")",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
         "label": "BASE_DIR",
         "kind": 5,
         "importPath": "app.main",

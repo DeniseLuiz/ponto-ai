@@ -1,5 +1,6 @@
 import redis
 from app.config import settings
+import logging
 
 logger = logging.getLogger("pontoai.redis")
 

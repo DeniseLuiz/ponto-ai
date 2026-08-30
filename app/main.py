@@ -3,11 +3,13 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import logging
 
 from app.auth.routes import router as auth_router
 from app.companies.routes import router as companies_router
 from app.employees.routes import router as employees_router
 from app.jobs.routes import router as jobs_router
+logger = logging.getLogger("pontoai.main")
 
 # Resolução do caminho absoluto da pasta frontend na raiz do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
