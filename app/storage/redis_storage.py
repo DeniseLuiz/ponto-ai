@@ -1,3 +1,5 @@
+from http.client import HTTPException
+
 import redis
 from app.config import settings
 
@@ -8,7 +10,13 @@ _client = redis.from_url(settings.CELERY_BROKER_URL.rsplit("/", 1)[0] + "/2", de
 def save_file(key: str, content: bytes) -> str:
     """Salva o arquivo binário no Redis com expiração automática (TTL)."""
     _client.setex(key, settings.FILE_TTL_SECONDS, content)
-    return key
+    
+    try:
+        _client.setex(key, settings.FILE_TTL_SECONDS, content)
+        return key
+    except Exception as e:
+        print(f"Erro ao salvar no Redis: {e}")
+        raise HTTPException(status_code=503, detail="Serviço de cache/armazenamento temporário indisponível.")
 
 
 def get_file(key: str) -> bytes | None:

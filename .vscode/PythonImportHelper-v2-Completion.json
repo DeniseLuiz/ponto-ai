@@ -1081,6 +1081,14 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "http.client",
+        "description": "http.client",
+        "isExtraImport": true,
+        "detail": "http.client",
+        "documentation": {}
+    },
+    {
         "label": "redis",
         "kind": 6,
         "isExtraImport": true,
@@ -1821,7 +1829,7 @@
         "kind": 2,
         "importPath": "app.storage.redis_storage",
         "description": "app.storage.redis_storage",
-        "peekOfCode": "def save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    return key\ndef get_file(key: str) -> bytes | None:\n    \"\"\"Recupera o arquivo do Redis. Retorna None se expirado/inexistente.\"\"\"\n    return _client.get(key)\ndef delete_file(key: str) -> None:\n    _client.delete(key)",
+        "peekOfCode": "def save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    try:\n        _client.setex(key, settings.FILE_TTL_SECONDS, content)\n        return key\n    except Exception as e:\n        print(f\"Erro ao salvar no Redis: {e}\")\n        raise HTTPException(status_code=503, detail=\"Serviço de cache/armazenamento temporário indisponível.\")\ndef get_file(key: str) -> bytes | None:",
         "detail": "app.storage.redis_storage",
         "documentation": {}
     },
@@ -1848,7 +1856,7 @@
         "kind": 5,
         "importPath": "app.storage.redis_storage",
         "description": "app.storage.redis_storage",
-        "peekOfCode": "_client = redis.from_url(settings.CELERY_BROKER_URL.rsplit(\"/\", 1)[0] + \"/2\", decode_responses=False)\ndef save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    return key\ndef get_file(key: str) -> bytes | None:\n    \"\"\"Recupera o arquivo do Redis. Retorna None se expirado/inexistente.\"\"\"\n    return _client.get(key)\ndef delete_file(key: str) -> None:\n    _client.delete(key)",
+        "peekOfCode": "_client = redis.from_url(settings.CELERY_BROKER_URL.rsplit(\"/\", 1)[0] + \"/2\", decode_responses=False)\ndef save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    try:\n        _client.setex(key, settings.FILE_TTL_SECONDS, content)\n        return key\n    except Exception as e:\n        print(f\"Erro ao salvar no Redis: {e}\")\n        raise HTTPException(status_code=503, detail=\"Serviço de cache/armazenamento temporário indisponível.\")",
         "detail": "app.storage.redis_storage",
         "documentation": {}
     },
