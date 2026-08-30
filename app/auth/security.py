@@ -1,10 +1,12 @@
-# Adicione 'Depends' na importação do fastapi
-from fastapi import Depends, HTTPException, status 
-from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta, timezone
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
 import jwt
 from passlib.context import CryptContext
 from app.config import settings
+
+# Instancia o esquema OAuth2 apontando para a rota de login
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -23,29 +25,14 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> s
 def verify_active_session(token: str = Depends(oauth2_scheme)) -> dict:
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Sessão inválida ou expirada",
+        detail="Não foi possível validar as credenciais",
         headers={"WWW-Authenticate": "Bearer"},
     )
-    
     try:
-        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])
-        employee_id: str = payload.get("sub")
-        session_id: str = payload.get("session_id")
-        
-        if not employee_id or not session_id:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        user_id: str = payload.get("sub")
+        if user_id is None:
             raise credentials_exception
-            
-    except JWTError:
+        return payload
+    except jwt.PyJWTError:
         raise credentials_exception
-
-    # Validação no Redis
-    current_active_session = get_user_session(employee_id)
-    if not current_active_session or current_active_session != session_id:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Sessão encerrada por um novo login em outro dispositivo"
-        )
-
-    return payload
-
-get_current_user = verify_active_session
