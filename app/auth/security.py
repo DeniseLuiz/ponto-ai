@@ -5,9 +5,7 @@ import jwt
 from passlib.context import CryptContext
 from app.config import settings
 
-# Instancia o esquema OAuth2 apontando para a rota de login
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
@@ -22,7 +20,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> s
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
 
-def verify_active_session(token: str = Depends(oauth2_scheme)) -> dict:
+def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Não foi possível validar as credenciais",
@@ -36,6 +34,6 @@ def verify_active_session(token: str = Depends(oauth2_scheme)) -> dict:
         return payload
     except jwt.PyJWTError:
         raise credentials_exception
-    
+
 # Alias para manter compatibilidade caso algum arquivo chame verify_active_session
 verify_active_session = get_current_user
