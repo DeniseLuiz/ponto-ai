@@ -7,7 +7,7 @@ from app.config import settings
 
 def split_pdf_text_from_bytes(pdf_bytes: bytes, chunk_size: int) -> list[str]:
     """
-    Divide o PDF (em memória) em blocos de texto de N páginas (padrão 50).
+    Divide o PDF (em memória) em blocos de texto de N páginas.
     Retorna lista de strings, cada uma correspondente a um bloco.
     """
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")

@@ -91,7 +91,7 @@ class EmployeeOut(EmployeeBase):
 # ==========================================
 
 class JobBase(BaseModel):
-    role_mode: int  # 1, 2 ou 3
+    role_mode: int  # Configuração do modo (1, 2 ou 3)
     employee_id: int | None = None
 
 
