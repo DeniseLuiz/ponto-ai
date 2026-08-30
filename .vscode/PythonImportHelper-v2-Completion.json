@@ -1398,7 +1398,7 @@
         "kind": 2,
         "importPath": "app.companies.routes",
         "description": "app.companies.routes",
-        "peekOfCode": "def create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj)\n    db.add(company)\n    db.commit()\n    db.refresh(company)",
+        "peekOfCode": "def create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj, is_active=payload.is_active)\n    db.add(company)\n    db.commit()\n    db.refresh(company)",
         "detail": "app.companies.routes",
         "documentation": {}
     },
@@ -1434,7 +1434,7 @@
         "kind": 5,
         "importPath": "app.companies.routes",
         "description": "app.companies.routes",
-        "peekOfCode": "router = APIRouter(prefix=\"/companies\", tags=[\"Empresas\"])\n@router.post(\"/\", response_model=schemas.CompanyOut, status_code=201)\ndef create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj)\n    db.add(company)",
+        "peekOfCode": "router = APIRouter(prefix=\"/companies\", tags=[\"Empresas\"])\n@router.post(\"/\", response_model=schemas.CompanyOut, status_code=201)\ndef create_company(\n    payload: schemas.CompanyCreate,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    \"\"\"Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários.\"\"\"\n    company = models.Company(name=payload.name, cnpj=payload.cnpj, is_active=payload.is_active)\n    db.add(company)",
         "detail": "app.companies.routes",
         "documentation": {}
     },
@@ -1920,7 +1920,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class CompanyBase(BaseModel):\n    name: str\n    cnpj: str | None = None\n    active: bool = True\nclass CompanyCreate(CompanyBase):\n    pass\nclass CompanyOut(CompanyBase):\n    id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)",
+        "peekOfCode": "class CompanyBase(BaseModel):\n    name: str\n    cnpj: str | None = None\n    is_active: bool = True\nclass CompanyCreate(CompanyBase):\n    pass\nclass CompanyOut(CompanyBase):\n    id: int\n    created_at: datetime | None = None\n    model_config = ConfigDict(from_attributes=True)",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1947,7 +1947,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\n    username: str | None = None\n    active: bool = True\nclass EmployeeCreate(EmployeeBase):\n    # Usado só para localizar o User já cadastrado (via /auth/register).\n    # Não é uma coluna em Employee — o vínculo persistido é EmployeeOut.user_id (FK).\n    email: EmailStr",
+        "peekOfCode": "class EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\nclass EmployeeCreate(EmployeeBase):\n    # Usado só para localizar o User já cadastrado (via /auth/register).\n    # Não é uma coluna em Employee — o vínculo persistido é EmployeeOut.user_id (FK).\n    email: EmailStr\n    company_id: int\nclass EmployeeOut(EmployeeBase):",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1983,7 +1983,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class JobCreate(JobBase):\n    pass\nclass JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int\n    original_filename: str | None = None\n    pdf_path: str | None = None\n    result_path: str | None = None",
+        "peekOfCode": "class JobCreate(JobBase):\n    pass\nclass JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int\n    original_filename: str | None = None\n    pdf_key: str | None = None\n    result_key: str | None = None",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -1992,7 +1992,7 @@
         "kind": 6,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "class JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int\n    original_filename: str | None = None\n    pdf_path: str | None = None\n    result_path: str | None = None\n    status: str\n    error_message: str | None = None",
+        "peekOfCode": "class JobOut(JobBase):\n    id: int\n    user_id: int\n    employee_id: int | None = None\n    role_mode: int\n    original_filename: str | None = None\n    pdf_key: str | None = None\n    result_key: str | None = None\n    status: str\n    error_message: str | None = None",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -2010,7 +2010,7 @@
         "kind": 5,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "UserResponse = UserOut  # Suporta rotas antigas\n# ==========================================\n# 3. EMPRESA (COMPANY)\n# ==========================================\nclass CompanyBase(BaseModel):\n    name: str\n    cnpj: str | None = None\n    active: bool = True\nclass CompanyCreate(CompanyBase):\n    pass",
+        "peekOfCode": "UserResponse = UserOut  # Suporta rotas antigas\n# ==========================================\n# 3. EMPRESA (COMPANY)\n# ==========================================\nclass CompanyBase(BaseModel):\n    name: str\n    cnpj: str | None = None\n    is_active: bool = True\nclass CompanyCreate(CompanyBase):\n    pass",
         "detail": "app.schemas",
         "documentation": {}
     },
@@ -2019,7 +2019,7 @@
         "kind": 5,
         "importPath": "app.schemas",
         "description": "app.schemas",
-        "peekOfCode": "CompanyResponse = CompanyOut  # Suporta rotas antigas\n# ==========================================\n# 4. FUNCIONÁRIO (EMPLOYEE)\n# ==========================================\nclass EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\n    username: str | None = None\n    active: bool = True",
+        "peekOfCode": "CompanyResponse = CompanyOut  # Suporta rotas antigas\n# ==========================================\n# 4. FUNCIONÁRIO (EMPLOYEE)\n# ==========================================\nclass EmployeeBase(BaseModel):\n    name: str\n    cpf: str | None = None\n    role_title: str | None = None\nclass EmployeeCreate(EmployeeBase):\n    # Usado só para localizar o User já cadastrado (via /auth/register).",
         "detail": "app.schemas",
         "documentation": {}
     },

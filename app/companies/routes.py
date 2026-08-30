@@ -16,7 +16,7 @@ def create_company(
     current_user: models.User = Depends(get_current_user),
 ):
     """Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários."""
-    company = models.Company(name=payload.name, cnpj=payload.cnpj)
+    company = models.Company(name=payload.name, cnpj=payload.cnpj, is_active=payload.is_active)
     db.add(company)
     db.commit()
     db.refresh(company)

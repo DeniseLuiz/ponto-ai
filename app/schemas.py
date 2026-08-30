@@ -56,7 +56,7 @@ UserResponse = UserOut  # Suporta rotas antigas
 class CompanyBase(BaseModel):
     name: str
     cnpj: str | None = None
-    active: bool = True
+    is_active: bool = True
 
 
 class CompanyCreate(CompanyBase):
@@ -80,8 +80,6 @@ class EmployeeBase(BaseModel):
     name: str
     cpf: str | None = None
     role_title: str | None = None
-    username: str | None = None
-    active: bool = True
 
 
 class EmployeeCreate(EmployeeBase):
@@ -121,8 +119,8 @@ class JobOut(JobBase):
     employee_id: int | None = None
     role_mode: int
     original_filename: str | None = None
-    pdf_path: str | None = None
-    result_path: str | None = None
+    pdf_key: str | None = None
+    result_key: str | None = None
     status: str
     error_message: str | None = None
     created_at: datetime | None = None

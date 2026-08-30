@@ -15,3 +15,9 @@ em planilha Excel.
 ```bash
 cp .env.example .env
 # edite o .env e preencha GEMINI_API_KEY e JWT_SECRET
+
+# TODO
+# Replicar logo CSS e imagem no head da página
+# Testar a aplicação de ponta a ponta
+# Ajustar possíveis endpoints 
+# Validar o consumo de IA, armazenamento e outras infras
