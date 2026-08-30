@@ -2,9 +2,12 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
+from sqlalchemy.orm import Session
 import jwt
 from passlib.context import CryptContext
 from app.config import settings
+from app.database import get_db
+from app.models import User
 from app.redis import get_user_session
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
@@ -57,3 +60,12 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
 
 # Alias para manter compatibilidade caso algum arquivo chame verify_active_session
 verify_active_session = get_current_user
+
+
+def require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    """Dependency para rotas restritas a administradores.
+    Reaproveita get_current_user (token + sessão já validados) e só confere o role."""
+    user = db.query(User).filter(User.id == int(current_user["sub"])).first()
+    if not user or user.role != "admin":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Acesso restrito a administradores")
+    return user

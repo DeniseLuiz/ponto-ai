@@ -4,9 +4,8 @@ from typing import List
 
 from app.database import get_db
 from app import models, schemas
-from app.auth.security import get_current_user
+from app.auth.security import get_current_user, require_admin
 
-# router = APIRouter(prefix="/companies", tags=["Empresas"])
 router = APIRouter(tags=["Empresas"])
 
 
@@ -14,7 +13,7 @@ router = APIRouter(tags=["Empresas"])
 def create_company(
     payload: schemas.CompanyCreate,
     db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
+    current_user: models.User = Depends(require_admin),
 ):
     """Cria uma nova empresa. Regra de negócio: 1 empresa pode ter N funcionários."""
     company = models.Company(name=payload.name, cnpj=payload.cnpj, is_active=payload.is_active)
@@ -48,7 +47,7 @@ def get_company(
 def delete_company(
     company_id: int,
     db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
+    current_user: models.User = Depends(require_admin),
 ):
     company = db.query(models.Company).filter(models.Company.id == company_id).first()
     if not company:

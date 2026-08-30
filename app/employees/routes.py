@@ -1,16 +1,19 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from uuid import UUID
 from app.database import get_db
 from app.models import Employee, Company, User
 from app.schemas import EmployeeCreate, EmployeeResponse
+from app.auth.security import require_admin, get_current_user
 
-# router = APIRouter(prefix="/employees", tags=["Employees"])
 router = APIRouter(tags=["Employees"])
 
 @router.post("/", response_model=EmployeeResponse, status_code=status.HTTP_201_CREATED)
-def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
+def create_employee(
+    employee_in: EmployeeCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin),
+):
     # Valida se a empresa informada existe
     company = db.query(Company).filter(Company.id == employee_in.company_id).first()
     if not company:
@@ -42,5 +45,9 @@ def create_employee(employee_in: EmployeeCreate, db: Session = Depends(get_db)):
     return new_employee
 
 @router.get("/company/{company_id}", response_model=List[EmployeeResponse])
-def list_employees_by_company(company_id: int, db: Session = Depends(get_db)):
+def list_employees_by_company(
+    company_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
     return db.query(Employee).filter(Employee.company_id == company_id).all()

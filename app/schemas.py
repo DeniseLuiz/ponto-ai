@@ -1,3 +1,4 @@
+from typing import Literal
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, EmailStr
 
@@ -43,11 +44,13 @@ class UserOut(UserBase):
     id: int
     company_id: int | None = None
     created_at: datetime | None = None
+    role: str
 
     model_config = ConfigDict(from_attributes=True)
 
 UserResponse = UserOut  # Suporta rotas antigas
-
+class RoleUpdate(BaseModel):
+    role: Literal["admin", "user"]
 
 # ==========================================
 # 3. EMPRESA (COMPANY)
