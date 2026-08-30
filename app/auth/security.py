@@ -56,7 +56,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
         raise credentials_exception
 
     return {
-        "id": user_id,
+        "id": int(user_id),
         "session_id": session_id,  # adicione outras informações do payload se precisar (ex: email, role)
     }
 

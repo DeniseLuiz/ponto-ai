@@ -20,7 +20,6 @@ def get_available_roles():
     """Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente."""
     return list_roles()
 
-
 @router.post("/upload", response_model=schemas.JobOut, status_code=202)
 async def upload_pdf(
     file: UploadFile = File(...),
@@ -42,10 +41,10 @@ async def upload_pdf(
     content = await file.read()
     pdf_key = f"pdf:{uuid.uuid4().hex}"
     save_file(pdf_key, content)
-    user_id_int = int(current_user["sub"])
+
     job = models.Job(
         employee_id=employee_id,
-        user_id=user_id_int,
+        user_id=current_user["id"],
         role_mode=role_id,
         original_filename=file.filename,
         pdf_key=pdf_key,
@@ -66,8 +65,7 @@ def list_jobs(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    user_id_int = int(current_user["sub"])
-    return db.query(models.Job).filter(models.Job.user_id == user_id_int).all()
+    return db.query(models.Job).filter(models.Job.user_id == current_user["id"]).all()
 
 
 @router.get("/{job_id}/status", response_model=schemas.JobOut)
@@ -76,9 +74,8 @@ def job_status(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    user_id_int = int(current_user["sub"])
     job = db.query(models.Job).filter(
-        models.Job.id == job_id, models.Job.user_id == user_id_int
+        models.Job.id == job_id, models.Job.user_id == current_user["id"]
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")
@@ -91,9 +88,8 @@ def download_result(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    user_id_int = int(current_user["sub"])
     job = db.query(models.Job).filter(
-        models.Job.id == job_id, models.Job.user_id == user_id_int
+        models.Job.id == job_id, models.Job.user_id == current_user["id"]
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")
