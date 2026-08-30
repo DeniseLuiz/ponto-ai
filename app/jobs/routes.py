@@ -46,7 +46,7 @@ async def upload_pdf(
 
     job = models.Job(
         employee_id=employee_id,
-        user_id=current_user.id,
+        user_id=current_user["id"],
         role_mode=role_id,
         original_filename=file.filename,
         pdf_key=pdf_key,
@@ -67,7 +67,7 @@ def list_jobs(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    return db.query(models.Job).filter(models.Job.user_id == current_user.id).all()
+    return db.query(models.Job).filter(models.Job.user_id == current_user["id"]).all()
 
 
 @router.get("/{job_id}/status", response_model=schemas.JobOut)
@@ -77,7 +77,7 @@ def job_status(
     current_user: models.User = Depends(get_current_user),
 ):
     job = db.query(models.Job).filter(
-        models.Job.id == job_id, models.Job.user_id == current_user.id
+        models.Job.id == job_id, models.Job.user_id == current_user["id"]
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")
@@ -91,7 +91,7 @@ def download_result(
     current_user: models.User = Depends(get_current_user),
 ):
     job = db.query(models.Job).filter(
-        models.Job.id == job_id, models.Job.user_id == current_user.id
+        models.Job.id == job_id, models.Job.user_id == current_user["id"]
     ).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job não encontrado.")

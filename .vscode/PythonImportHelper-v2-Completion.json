@@ -1667,7 +1667,7 @@
         "kind": 2,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "def list_jobs(\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    return db.query(models.Job).filter(models.Job.user_id == current_user.id).all()\n@router.get(\"/{job_id}/status\", response_model=schemas.JobOut)\ndef job_status(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),",
+        "peekOfCode": "def list_jobs(\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    return db.query(models.Job).filter(models.Job.user_id == current_user[\"id\"]).all()\n@router.get(\"/{job_id}/status\", response_model=schemas.JobOut)\ndef job_status(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),",
         "detail": "app.jobs.routes",
         "documentation": {}
     },
@@ -1676,7 +1676,7 @@
         "kind": 2,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "def job_status(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    job = db.query(models.Job).filter(\n        models.Job.id == job_id, models.Job.user_id == current_user.id\n    ).first()\n    if not job:\n        raise HTTPException(status_code=404, detail=\"Job não encontrado.\")",
+        "peekOfCode": "def job_status(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    job = db.query(models.Job).filter(\n        models.Job.id == job_id, models.Job.user_id == current_user[\"id\"]\n    ).first()\n    if not job:\n        raise HTTPException(status_code=404, detail=\"Job não encontrado.\")",
         "detail": "app.jobs.routes",
         "documentation": {}
     },
@@ -1685,7 +1685,7 @@
         "kind": 2,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "def download_result(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    job = db.query(models.Job).filter(\n        models.Job.id == job_id, models.Job.user_id == current_user.id\n    ).first()\n    if not job:\n        raise HTTPException(status_code=404, detail=\"Job não encontrado.\")",
+        "peekOfCode": "def download_result(\n    job_id: int,\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),\n):\n    job = db.query(models.Job).filter(\n        models.Job.id == job_id, models.Job.user_id == current_user[\"id\"]\n    ).first()\n    if not job:\n        raise HTTPException(status_code=404, detail=\"Job não encontrado.\")",
         "detail": "app.jobs.routes",
         "documentation": {}
     },
