@@ -21,3 +21,7 @@ cp .env.example .env
 # Testar a aplicação de ponta a ponta
 # Ajustar possíveis endpoints 
 # Validar o consumo de IA, armazenamento e outras infras
+#Retirar os 'melhorias adicionadas'
+#Adicionar novo layout da marca
+#Pemitir interromper o envio se necessário (ou clicando no botão laranja, ou cliando no fechar do arquivo)
+#adicionar um descritivo de cada um dos modos disponíveis na aplicação

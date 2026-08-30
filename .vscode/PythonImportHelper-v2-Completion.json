@@ -1106,6 +1106,15 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
         "label": "CORSMiddleware",
         "importPath": "fastapi.middleware.cors",
         "description": "fastapi.middleware.cors",
@@ -1907,6 +1916,15 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "peekOfCode": "logger = logging.getLogger(\"pontoai\")\nlogger.setLevel(logging.INFO)",
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
         "label": "health_check",
         "kind": 2,
         "importPath": "app.main",
@@ -1983,7 +2001,7 @@
         "kind": 2,
         "importPath": "app.redis",
         "description": "app.redis",
-        "peekOfCode": "def save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
+        "peekOfCode": "def save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\n    logger.info(\"Sessão salva com sucesso\")\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
         "detail": "app.redis",
         "documentation": {}
     },
@@ -1992,16 +2010,16 @@
         "kind": 2,
         "importPath": "app.redis",
         "description": "app.redis",
-        "peekOfCode": "def get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
+        "peekOfCode": "def get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)\nprint(f\"URL do Redis: {settings.CELERY_BROKER_URL}\")",
         "detail": "app.redis",
         "documentation": {}
     },
     {
-        "label": "redis_client",
+        "label": "logger",
         "kind": 5,
         "importPath": "app.redis",
         "description": "app.redis",
-        "peekOfCode": "redis_client = redis.Redis.from_url(settings.CELERY_BROKER_URL, decode_responses=True)\ndef save_user_session(employee_id: str, session_id: str):\n    \"\"\"Salva a sessão sincronizando o TTL com o tempo definido no Environment Group.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    expire_in_seconds = settings.SESSION_EXPIRE_MINUTES * 60\n    redis_client.set(key, session_id, ex=expire_in_seconds)\ndef get_user_session(employee_id: str) -> str | None:\n    \"\"\"Busca o session_id ativo do usuário no Redis.\"\"\"\n    key = f\"user_session:{employee_id}\"\n    return redis_client.get(key)",
+        "peekOfCode": "logger = logging.getLogger(\"pontoai.redis\")\nlogger.info(f\"Tentando conectar ao Redis na URL: {settings.CELERY_BROKER_URL}\")\n# Reaproveita a mesma URL do broker do Celery, já injetada corretamente pelo\n# Render via `fromService` no render.yaml. Antes existia uma segunda conexão\n# aqui, montada a partir de REDIS_HOST/REDIS_PORT/REDIS_PASSWORD — variáveis\n# que nunca são setadas pelo render.yaml, causando ConnectionError em produção.\ntry:\n    redis_client = redis.Redis.from_url(\n        settings.CELERY_BROKER_URL, \n        decode_responses=True,",
         "detail": "app.redis",
         "documentation": {}
     },
