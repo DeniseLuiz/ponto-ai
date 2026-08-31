@@ -20,44 +20,94 @@ def get_available_roles():
     """Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente."""
     return list_roles()
 
-@router.post("/upload", response_model=schemas.JobOut, status_code=202)
-async def upload_pdf(
+
+async def upload_job(
     file: UploadFile = File(...),
     role_id: int = Form(...),
-    employee_id: Optional[int] = Form(None),
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
+    employee_id: int = Form(None),
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
-    """
-    Recebe o PDF, salva no Redis (com TTL) e dispara o processamento
-    assíncrono via Celery. Retorna imediatamente o job criado (status=pending).
-    """
     if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Apenas arquivos PDF são aceitos.")
-
-    if role_id not in (1, 2, 3):
-        raise HTTPException(status_code=400, detail="role_id inválido. Use 1, 2 ou 3.")
-
-    content = await file.read()
-    pdf_key = f"pdf:{uuid.uuid4().hex}"
-    save_file(pdf_key, content)
-
-    job = models.Job(
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Apenas arquivos no formato PDF são permitidos."
+        )
+        
+    if role_id not in [1, 2, 3]:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Modo de extração (role_id) inválido."
+        )
+        
+    try:
+        file_bytes = await file.read()
+        pdf_key = f"pdf:{uuid.uuid4()}"
+        save_file(pdf_key, file_bytes)
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro ao salvar o arquivo temporariamente no Redis: {str(e)}"
+        )
+        
+    job = Job(
+        user_id=int(current_user["sub"]),
         employee_id=employee_id,
-        user_id=current_user["id"],
         role_mode=role_id,
         original_filename=file.filename,
         pdf_key=pdf_key,
-        status="pending",
+        status="pending"
     )
     db.add(job)
     db.commit()
     db.refresh(job)
-
-    # Dispara a tarefa assíncrona (Celery worker)
+    
+    # Dispara a tarefa assíncrona no Celery
     run_extraction_job.delay(job.id)
+    
+    return {
+        "message": "Upload realizado com sucesso e job enfileirado.",
+        "job_id": job.id,
+        "status": job.status
+    }
+# @router.post("/upload", response_model=schemas.JobOut, status_code=202)
+# async def upload_pdf(
+#     file: UploadFile = File(...),
+#     role_id: int = Form(...),
+#     employee_id: Optional[int] = Form(None),
+#     db: Session = Depends(get_db),
+#     current_user: models.User = Depends(get_current_user),
+# ):
+#     """
+#     Recebe o PDF, salva no Redis (com TTL) e dispara o processamento
+#     assíncrono via Celery. Retorna imediatamente o job criado (status=pending).
+#     """
+#     if file.content_type != "application/pdf":
+#         raise HTTPException(status_code=400, detail="Apenas arquivos PDF são aceitos.")
 
-    return job
+#     if role_id not in (1, 2, 3):
+#         raise HTTPException(status_code=400, detail="role_id inválido. Use 1, 2 ou 3.")
+
+#     content = await file.read()
+#     pdf_key = f"pdf:{uuid.uuid4().hex}"
+#     save_file(pdf_key, content)
+
+#     job = models.Job(
+#         employee_id=employee_id,
+#         user_id=current_user["id"],
+#         role_mode=role_id,
+#         original_filename=file.filename,
+#         pdf_key=pdf_key,
+#         status="pending",
+#     )
+#     db.add(job)
+#     db.commit()
+#     db.refresh(job)
+
+#     # Dispara a tarefa assíncrona (Celery worker)
+#     run_extraction_job.delay(job.id)
+
+#     return job
 
 
 @router.get("/", response_model=List[schemas.JobOut])

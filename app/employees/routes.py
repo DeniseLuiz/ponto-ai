@@ -21,17 +21,30 @@ def create_employee(
 
     # O vínculo é feito com um User já existente, localizado pelo email.
     # Employee não guarda credenciais próprias (email/senha vivem só em User).
-    user = db.query(User).filter(User.email == employee_in.email).first()
+    user = db.query(User).filter(User.email == employee_in.email.strip().lower()).first()
     if not user:
         raise HTTPException(
             status_code=404,
             detail="Nenhum usuário encontrado com esse email. Cadastre o usuário primeiro em POST /api/auth/register",
         )
+        
+    if user.company_id is not None and user.company_id != employee_in.company_id:
+        raise HTTPException(
+           status_code=400,
+           detail="Este usuário já está vinculado a outra empresa (User.company_id diverge).",
+    )
 
     existing_employee = db.query(Employee).filter(Employee.user_id == user.id).first()
     if existing_employee:
         raise HTTPException(status_code=400, detail="Este usuário já está vinculado a um funcionário")
 
+    current_count = db.query(Employee).filter(Employee.company_id == company.id).count()
+    if current_count >= company.max_employees:
+       raise HTTPException(
+           status_code=400,
+           detail=f"Limite de {company.max_employees} funcionários atingido para esta empresa.",
+    )
+    
     new_employee = Employee(
         name=employee_in.name,
         cpf=employee_in.cpf,

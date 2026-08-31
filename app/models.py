@@ -13,6 +13,7 @@ class Company(Base):
     cnpj = Column(String, unique=True, nullable=True, index=True)
     is_active = Column(Boolean, nullable=False, server_default="true")
     created_at = Column(DateTime, server_default=func.now())
+    max_employees = Column(Integer, nullable=False, server_default="50")  # limite configurável por empresa
 
     # Relacionamentos
     users = relationship("User", back_populates="company", cascade="all, delete-orphan")
@@ -65,8 +66,8 @@ class Job(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     role_mode = Column(Integer, nullable=False)  # Configuração de modo (1, 2 ou 3)
     original_filename = Column(String, nullable=True)
-    pdf_path = Column(String, nullable=False)     # Mapeado também como pdf_key via código
-    result_path = Column(String, nullable=True)   # Mapeado também como result_key via código
+    pdf_key = Column(String, nullable=False)     # Mapeado também como pdf_key via código
+    result_key = Column(String, nullable=True)   # Mapeado também como result_key via código
     status = Column(String, nullable=False, default="pending")  # pending, processing, done, failed
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, server_default=func.now())
@@ -77,18 +78,3 @@ class Job(Base):
     employee = relationship("Employee", back_populates="jobs")
 
     # Propriedades de conveniência para suportar chaves S3/MinIO
-    @property
-    def pdf_key(self):
-        return self.pdf_path
-
-    @pdf_key.setter
-    def pdf_key(self, value):
-        self.pdf_path = value
-
-    @property
-    def result_key(self):
-        return self.result_path
-
-    @result_key.setter
-    def result_key(self, value):
-        self.result_path = value

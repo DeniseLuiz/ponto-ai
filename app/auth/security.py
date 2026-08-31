@@ -68,8 +68,8 @@ verify_active_session = get_current_user
 def require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     """Dependency para rotas restritas a administradores.
     Reaproveita get_current_user (token + sessão já validados) e só confere o role."""
-    user = db.query(User).filter(User.id == int(current_user["sub"])).first()
-    print(user)
+    # user = db.query(User).filter(User.id == int(current_user["sub"])).first()
+    user = db.query(User).filter(User.id == current_user["id"]).first()
     if not user or user.role != "admin":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Acesso restrito a administradores")
     return user

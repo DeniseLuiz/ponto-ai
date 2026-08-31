@@ -32,6 +32,14 @@
         "documentation": {}
     },
     {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
         "label": "context",
         "importPath": "alembic",
         "description": "alembic",
@@ -224,6 +232,14 @@
         "description": "app.database",
         "isExtraImport": true,
         "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
         "documentation": {}
     },
     {
@@ -804,6 +820,14 @@
         "documentation": {}
     },
     {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -1000,12 +1024,11 @@
         "documentation": {}
     },
     {
-        "label": "google.generativeai",
-        "kind": 6,
+        "label": "genai",
+        "importPath": "google",
+        "description": "google",
         "isExtraImport": true,
-        "importPath": "google.generativeai",
-        "description": "google.generativeai",
-        "detail": "google.generativeai",
+        "detail": "google",
         "documentation": {}
     },
     {
@@ -1411,6 +1434,51 @@
         "documentation": {}
     },
     {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0005_companie_limite",
+        "description": "alembic.versions.0005_companie_limite",
+        "peekOfCode": "def upgrade():\n    op.add_column(\"companies\", sa.Column(\"max_employees\", sa.Integer, nullable=False, server_default=\"50\"))",
+        "detail": "alembic.versions.0005_companie_limite",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "alembic.versions.0005_companie_limite",
+        "description": "alembic.versions.0005_companie_limite",
+        "peekOfCode": "revision = \"0005\"\ndown_revision = \"0004\"\nbranch_labels = None\ndepends_on = None\nfrom alembic import op\nimport sqlalchemy as sa\ndef upgrade():\n    op.add_column(\"companies\", sa.Column(\"max_employees\", sa.Integer, nullable=False, server_default=\"50\"))",
+        "detail": "alembic.versions.0005_companie_limite",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "alembic.versions.0005_companie_limite",
+        "description": "alembic.versions.0005_companie_limite",
+        "peekOfCode": "down_revision = \"0004\"\nbranch_labels = None\ndepends_on = None\nfrom alembic import op\nimport sqlalchemy as sa\ndef upgrade():\n    op.add_column(\"companies\", sa.Column(\"max_employees\", sa.Integer, nullable=False, server_default=\"50\"))",
+        "detail": "alembic.versions.0005_companie_limite",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "alembic.versions.0005_companie_limite",
+        "description": "alembic.versions.0005_companie_limite",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\nfrom alembic import op\nimport sqlalchemy as sa\ndef upgrade():\n    op.add_column(\"companies\", sa.Column(\"max_employees\", sa.Integer, nullable=False, server_default=\"50\"))",
+        "detail": "alembic.versions.0005_companie_limite",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "alembic.versions.0005_companie_limite",
+        "description": "alembic.versions.0005_companie_limite",
+        "peekOfCode": "depends_on = None\nfrom alembic import op\nimport sqlalchemy as sa\ndef upgrade():\n    op.add_column(\"companies\", sa.Column(\"max_employees\", sa.Integer, nullable=False, server_default=\"50\"))",
+        "detail": "alembic.versions.0005_companie_limite",
+        "documentation": {}
+    },
+    {
         "label": "run_migrations_offline",
         "kind": 2,
         "importPath": "alembic.env",
@@ -1451,7 +1519,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def register(payload: UserCreate, db: Session = Depends(get_db)):\n    existing = db.query(User).filter(User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    # Bootstrap: o 1º usuário do sistema vira admin automaticamente\n    # (resolve o problema de \"quem cria o 1º admin, se criar empresa exige login\").\n    # Todos os demais entram como \"user\" por padrão — promoção é feita via\n    # PATCH /api/auth/users/{user_id}/role, só por quem já é admin.\n    role = \"admin\" if db.query(User).count() == 0 else \"user\"\n    new_user = User(",
+        "peekOfCode": "def register(payload: UserCreate, db: Session = Depends(get_db)):\n    email = payload.email.strip().lower()\n    existing = db.query(User).filter(User.email == email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    # Bootstrap: o 1º usuário do sistema vira admin automaticamente\n    # (resolve o problema de \"quem cria o 1º admin, se criar empresa exige login\").\n    # Todos os demais entram como \"user\" por padrão — promoção é feita via\n    # PATCH /api/auth/users/{user_id}/role, só por quem já é admin.\n    role = \"admin\" if db.query(User).count() == 0 else \"user\"",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1460,7 +1528,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o usuário pelo email\n    user = db.query(User).filter(User.email == payload.email).first()\n    if not user or not verify_password(payload.password, user.hashed_password):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\",\n        )\n    # 2. Bloqueia acesso caso o usuário esteja inativo\n    if not user.is_active:",
+        "peekOfCode": "def login(payload: LoginRequest, db: Session = Depends(get_db)):\n    # 1. Busca o usuário pelo email\n    email = payload.email.strip().lower()\n    user = db.query(User).filter(User.email == email).first()\n    if not user or not verify_password(payload.password, user.hashed_password):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Usuário ou senha inválidos\",\n        )\n    # 2. Bloqueia acesso caso o usuário esteja inativo",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1478,7 +1546,7 @@
         "kind": 5,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "router = APIRouter(tags=[\"Auth\"])\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\ndef register(payload: UserCreate, db: Session = Depends(get_db)):\n    existing = db.query(User).filter(User.email == payload.email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    # Bootstrap: o 1º usuário do sistema vira admin automaticamente\n    # (resolve o problema de \"quem cria o 1º admin, se criar empresa exige login\").\n    # Todos os demais entram como \"user\" por padrão — promoção é feita via\n    # PATCH /api/auth/users/{user_id}/role, só por quem já é admin.",
+        "peekOfCode": "router = APIRouter(tags=[\"Auth\"])\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\ndef register(payload: UserCreate, db: Session = Depends(get_db)):\n    email = payload.email.strip().lower()\n    existing = db.query(User).filter(User.email == email).first()\n    if existing:\n        raise HTTPException(status_code=400, detail=\"Email já em uso\")\n    # Bootstrap: o 1º usuário do sistema vira admin automaticamente\n    # (resolve o problema de \"quem cria o 1º admin, se criar empresa exige login\").\n    # Todos os demais entram como \"user\" por padrão — promoção é feita via",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1523,7 +1591,7 @@
         "kind": 2,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "def require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    print(user)\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
+        "peekOfCode": "def require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    # user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    user = db.query(User).filter(User.id == current_user[\"id\"]).first()\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1550,7 +1618,7 @@
         "kind": 5,
         "importPath": "app.auth.security",
         "description": "app.auth.security",
-        "peekOfCode": "verify_active_session = get_current_user\ndef require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    print(user)\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
+        "peekOfCode": "verify_active_session = get_current_user\ndef require_admin(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):\n    \"\"\"Dependency para rotas restritas a administradores.\n    Reaproveita get_current_user (token + sessão já validados) e só confere o role.\"\"\"\n    # user = db.query(User).filter(User.id == int(current_user[\"sub\"])).first()\n    user = db.query(User).filter(User.id == current_user[\"id\"]).first()\n    if not user or user.role != \"admin\":\n        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=\"Acesso restrito a administradores\")\n    return user",
         "detail": "app.auth.security",
         "documentation": {}
     },
@@ -1658,7 +1726,7 @@
         "kind": 2,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "def get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_pdf(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: Optional[int] = Form(None),\n    db: Session = Depends(get_db),\n    current_user: models.User = Depends(get_current_user),",
+        "peekOfCode": "def get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\nasync def upload_job(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: int = Form(None),\n    current_user: dict = Depends(get_current_user),\n    db: Session = Depends(get_db)\n):",
         "detail": "app.jobs.routes",
         "documentation": {}
     },
@@ -1694,8 +1762,17 @@
         "kind": 5,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "router = APIRouter(tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_pdf(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: Optional[int] = Form(None),",
+        "peekOfCode": "router = APIRouter(tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\nasync def upload_job(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: int = Form(None),\n    current_user: dict = Depends(get_current_user),",
         "detail": "app.jobs.routes",
+        "documentation": {}
+    },
+    {
+        "label": "GeminiModelAdapter",
+        "kind": 6,
+        "importPath": "app.jobs.tasks",
+        "description": "app.jobs.tasks",
+        "peekOfCode": "class GeminiModelAdapter:\n    def __init__(self, client, model_name):\n        self._client = client\n        self._model_name = model_name\n    def generate_content(self, prompt):\n        return self._client.models.generate_content(\n            model=self._model_name,\n            contents=prompt,\n        )\n@celery_app.task(name=\"run_extraction_job\", bind=True, max_retries=2)",
+        "detail": "app.jobs.tasks",
         "documentation": {}
     },
     {
@@ -1703,7 +1780,16 @@
         "kind": 2,
         "importPath": "app.jobs.tasks",
         "description": "app.jobs.tasks",
-        "peekOfCode": "def run_extraction_job(self, job_id: int):\n    db = SessionLocal()\n    try:\n        job = db.query(models.Job).get(job_id)\n        if not job:\n            return\n        job.status = \"processing\"\n        db.commit()\n        client = genai.GenerativeModel(settings.GEMINI_MODEL)\n        result_key = process_job(job_id, job.pdf_key, job.role_mode, client)",
+        "peekOfCode": "def run_extraction_job(self, job_id: int):\n    db = SessionLocal()\n    try:\n        job = db.query(models.Job).get(job_id)\n        if not job:\n            return\n        job.status = \"processing\"\n        db.commit()\n        client = GeminiModelAdapter(_genai_client, settings.GEMINI_MODEL)\n        result_key = process_job(job_id, job.pdf_key, job.role_mode, client)",
+        "detail": "app.jobs.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "_genai_client",
+        "kind": 5,
+        "importPath": "app.jobs.tasks",
+        "description": "app.jobs.tasks",
+        "peekOfCode": "_genai_client = genai.Client(api_key=settings.GEMINI_API_KEY)\nclass GeminiModelAdapter:\n    def __init__(self, client, model_name):\n        self._client = client\n        self._model_name = model_name\n    def generate_content(self, prompt):\n        return self._client.models.generate_content(\n            model=self._model_name,\n            contents=prompt,\n        )",
         "detail": "app.jobs.tasks",
         "documentation": {}
     },
@@ -1829,7 +1915,7 @@
         "kind": 2,
         "importPath": "app.storage.redis_storage",
         "description": "app.storage.redis_storage",
-        "peekOfCode": "def save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    try:\n        _client.setex(key, settings.FILE_TTL_SECONDS, content)\n        return key\n    except Exception as e:\n        print(f\"Erro ao salvar no Redis: {e}\")\n        raise HTTPException(status_code=503, detail=\"Serviço de cache/armazenamento temporário indisponível.\")\ndef get_file(key: str) -> bytes | None:",
+        "peekOfCode": "def save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    try:\n        _client.setex(key, settings.FILE_TTL_SECONDS, content)\n        return key\n    except Exception as e:\n        print(f\"Erro ao salvar no Redis: {e}\")\n        raise HTTPException(status_code=503, detail=\"Serviço de cache/armazenamento temporário indisponível.\")\ndef get_file(key: str) -> bytes | None:\n    \"\"\"Recupera o arquivo do Redis. Retorna None se expirado/inexistente.\"\"\"",
         "detail": "app.storage.redis_storage",
         "documentation": {}
     },
@@ -1856,7 +1942,7 @@
         "kind": 5,
         "importPath": "app.storage.redis_storage",
         "description": "app.storage.redis_storage",
-        "peekOfCode": "_client = redis.from_url(settings.CELERY_BROKER_URL.rsplit(\"/\", 1)[0] + \"/2\", decode_responses=False)\ndef save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    _client.setex(key, settings.FILE_TTL_SECONDS, content)\n    try:\n        _client.setex(key, settings.FILE_TTL_SECONDS, content)\n        return key\n    except Exception as e:\n        print(f\"Erro ao salvar no Redis: {e}\")\n        raise HTTPException(status_code=503, detail=\"Serviço de cache/armazenamento temporário indisponível.\")",
+        "peekOfCode": "_client = redis.from_url(settings.CELERY_BROKER_URL.rsplit(\"/\", 1)[0] + \"/2\", decode_responses=False)\ndef save_file(key: str, content: bytes) -> str:\n    \"\"\"Salva o arquivo binário no Redis com expiração automática (TTL).\"\"\"\n    try:\n        _client.setex(key, settings.FILE_TTL_SECONDS, content)\n        return key\n    except Exception as e:\n        print(f\"Erro ao salvar no Redis: {e}\")\n        raise HTTPException(status_code=503, detail=\"Serviço de cache/armazenamento temporário indisponível.\")\ndef get_file(key: str) -> bytes | None:",
         "detail": "app.storage.redis_storage",
         "documentation": {}
     },
@@ -1982,7 +2068,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True, index=True)\n    is_active = Column(Boolean, nullable=False, server_default=\"true\")\n    created_at = Column(DateTime, server_default=func.now())\n    # Relacionamentos\n    users = relationship(\"User\", back_populates=\"company\", cascade=\"all, delete-orphan\")\n    employees = relationship(\"Employee\", back_populates=\"company\", cascade=\"all, delete-orphan\")",
+        "peekOfCode": "class Company(Base):\n    __tablename__ = \"companies\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    cnpj = Column(String, unique=True, nullable=True, index=True)\n    is_active = Column(Boolean, nullable=False, server_default=\"true\")\n    created_at = Column(DateTime, server_default=func.now())\n    max_employees = Column(Integer, nullable=False, server_default=\"50\")  # limite configurável por empresa\n    # Relacionamentos\n    users = relationship(\"User\", back_populates=\"company\", cascade=\"all, delete-orphan\")",
         "detail": "app.models",
         "documentation": {}
     },
@@ -2009,7 +2095,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Job(Base):\n    __tablename__ = \"jobs\"\n    id = Column(Integer, primary_key=True, index=True)\n    employee_id = Column(Integer, ForeignKey(\"employees.id\"), nullable=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    role_mode = Column(Integer, nullable=False)  # Configuração de modo (1, 2 ou 3)\n    original_filename = Column(String, nullable=True)\n    pdf_path = Column(String, nullable=False)     # Mapeado também como pdf_key via código\n    result_path = Column(String, nullable=True)   # Mapeado também como result_key via código\n    status = Column(String, nullable=False, default=\"pending\")  # pending, processing, done, failed",
+        "peekOfCode": "class Job(Base):\n    __tablename__ = \"jobs\"\n    id = Column(Integer, primary_key=True, index=True)\n    employee_id = Column(Integer, ForeignKey(\"employees.id\"), nullable=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    role_mode = Column(Integer, nullable=False)  # Configuração de modo (1, 2 ou 3)\n    original_filename = Column(String, nullable=True)\n    pdf_key = Column(String, nullable=False)     # Mapeado também como pdf_key via código\n    result_key = Column(String, nullable=True)   # Mapeado também como result_key via código\n    status = Column(String, nullable=False, default=\"pending\")  # pending, processing, done, failed",
         "detail": "app.models",
         "documentation": {}
     },
