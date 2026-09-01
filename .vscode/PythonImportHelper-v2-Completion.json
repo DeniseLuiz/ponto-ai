@@ -1734,7 +1734,7 @@
         "kind": 2,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "def get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\nasync def upload_job(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: int = Form(None),\n    current_user: dict = Depends(get_current_user),\n    db: Session = Depends(get_db)\n):",
+        "peekOfCode": "def get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_job(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: int = Form(None),\n    current_user: dict = Depends(get_current_user),\n    db: Session = Depends(get_db)",
         "detail": "app.jobs.routes",
         "documentation": {}
     },
@@ -1770,7 +1770,7 @@
         "kind": 5,
         "importPath": "app.jobs.routes",
         "description": "app.jobs.routes",
-        "peekOfCode": "router = APIRouter(tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\nasync def upload_job(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: int = Form(None),\n    current_user: dict = Depends(get_current_user),",
+        "peekOfCode": "router = APIRouter(tags=[\"Processamento (Jobs)\"])\n@router.get(\"/roles\")\ndef get_available_roles():\n    \"\"\"Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente.\"\"\"\n    return list_roles()\n@router.post(\"/upload\", response_model=schemas.JobOut, status_code=202)\nasync def upload_job(\n    file: UploadFile = File(...),\n    role_id: int = Form(...),\n    employee_id: int = Form(None),",
         "detail": "app.jobs.routes",
         "documentation": {}
     },

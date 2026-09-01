@@ -21,7 +21,7 @@ def get_available_roles():
     """Lista os modos (roles) disponíveis para o frontend montar os botões dinamicamente."""
     return list_roles()
 
-
+@router.post("/upload", response_model=schemas.JobOut, status_code=202)
 async def upload_job(
     file: UploadFile = File(...),
     role_id: int = Form(...),
