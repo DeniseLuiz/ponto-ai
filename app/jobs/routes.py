@@ -66,11 +66,12 @@ async def upload_job(
     # Dispara a tarefa assíncrona no Celery
     run_extraction_job.delay(job.id)
     
-    return {
-        "message": "Upload realizado com sucesso e job enfileirado.",
-        "job_id": job.id,
-        "status": job.status
-    }
+    # return {
+    #     "message": "Upload realizado com sucesso e job enfileirado.",
+    #     "job_id": job.id,
+    #     "status": job.status
+    # }
+    return job
 # @router.post("/upload", response_model=schemas.JobOut, status_code=202)
 # async def upload_pdf(
 #     file: UploadFile = File(...),
