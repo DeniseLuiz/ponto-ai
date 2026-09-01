@@ -5,16 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>pontoAi — Extração Automatizada de Ponto e Financeiro</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="https://copilot.microsoft.com/th/id/BCO.65b38f34-4abf-45cb-8b8b-df4cc5f0ac58.png">
+
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="logo" onclick="showSection('landing-section')" style="cursor: pointer;">
+    <!-- <div class="logo" onclick="showSection('landing-section')" style="cursor: pointer;">
       <div class="logo-icon">⏱</div>
       pontoAi
+    </div> -->
+    <div class="logo" onclick="showSection('landing-section')">
+      <div class="logo-icon">
+        <div class="clock">
+          <div class="hand"></div>
+        </div>
+      </div>
+      <span class="logo-text">pontoAi</span>
     </div>
+
     <nav>
       <a href="#landing-section" id="nav-about" class="active" onclick="showSection('landing-section')">Sobre Nós</a>
       <a href="#features" id="nav-features" onclick="scrollToFeatures()">Recursos</a>

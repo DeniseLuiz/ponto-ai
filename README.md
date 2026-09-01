@@ -25,3 +25,5 @@ cp .env.example .env
 #Adicionar novo layout da marca
 #Pemitir interromper o envio se necessário (ou clicando no botão laranja, ou cliando no fechar do arquivo)
 #adicionar um descritivo de cada um dos modos disponíveis na aplicação
+#Só liberar o botão de envio de houver documento e modo selecionado
+#?ssl_cert_reqs=CERT_NONE atualizar para padrao de verificação mais segura
