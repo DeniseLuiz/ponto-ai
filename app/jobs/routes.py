@@ -4,6 +4,7 @@ from fastapi import APIRouter, UploadFile, File, Depends, HTTPException, Form
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
+from fastapi import status
 
 from app.database import get_db
 from app import models, schemas
@@ -50,8 +51,8 @@ async def upload_job(
             detail=f"Erro ao salvar o arquivo temporariamente no Redis: {str(e)}"
         )
         
-    job = Job(
-        user_id=int(current_user["sub"]),
+    job = models.Job(
+        user_id=current_user["id"],
         employee_id=employee_id,
         role_mode=role_id,
         original_filename=file.filename,
