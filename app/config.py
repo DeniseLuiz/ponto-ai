@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     # Gemini & Arquivos
     GEMINI_API_KEY: str
-    GEMINI_MODEL: str = "gemini-3.1-pro-preview"
+    GEMINI_MODEL: str = "gemini-3.7-flash"
     FILE_TTL_SECONDS: int = 86400
     MAX_PDF_PAGES: int = 5000
     PDF_CHUNK_SIZE: int = 50
